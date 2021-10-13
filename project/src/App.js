@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './components/Home';
 import Inscription from './components/Inscription';
 import Login from './components/Login';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route exact path="/Login">
             <Login />
+          </Route>
+          <Route exact path="/Profile">
+            <Profile />
           </Route>
         </Switch>
       </Router>

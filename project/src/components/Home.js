@@ -1,7 +1,6 @@
 import React from "react";
-import { Button } from "@material-ui/core";
 import { BsSearch } from "react-icons/bs";
-import "../design.css";
+import "../styles.css/design.css";
 import { MdPersonAddAlt1 } from "react-icons/md";
 import { BiLogIn } from "react-icons/bi";
 import { AiFillHome } from "react-icons/ai";
@@ -10,48 +9,11 @@ import { GiPerson } from "react-icons/gi";
 import { FaUserNurse } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import arriereplan from "../images.jpg/arriereplan.png";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import design from "../images.jpg/design.png";
+import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom";
 
 const useStyles = makeStyles({
-  btn: {
-    width: 200,
-    padding: 50,
-    height: 50,
-    border: "solid",
-    borderRadius: 10,
-    color: "white",
-    transition: "ease-out 3s",
-    marginLeft: 70,
-    marginTop: 300,
-    transition: "color 0.5s linear",
-    fontFamily: "Philosopher, sans-serif",
-    fontSize: 19,
-    fontWeight: "bold",
-    float: "right",
-    "&:hover": {
-      cursor: "pointer",
-      color: "white",
-      backgroundColor: "#2F4F4F",
-      borderColor: "#E6E6FA",
-      backgroundColor: "#9370DB",
-    },
-  },
-
-  icon: {
-    position: "absolute",
-    fontSize: "50",
-    color: "white",
-    marginLeft: 50,
-    marginRight: 50,
-    transition: "ease-out 3s",
-    transition: "color 0.1s linear",
-
-    "&:hover": {
-      cursor: "pointer",
-      transform: "skew(10deg)",
-    },
-  },
+ 
   pic: {
     height: 900,
     marginLeft: -200,
@@ -65,7 +27,7 @@ const useStyles = makeStyles({
     backgroundColor: "#099399",
     borderRadius: 30,
     padding: 10,
-    fontSize: 15,
+    fontSize: 17,
     float: "right",
     transition: '0.1s',
     "&:hover": {
@@ -83,8 +45,7 @@ const useStyles = makeStyles({
     backgroundColor: "#8893A2",
     borderRadius: 30,
     padding: 12,
-    fontSize: 15,
-    borderColor: "white",
+    fontSize: 17,
     transition: '0.1s',
     float: "right",
     "&:hover": {
@@ -166,19 +127,19 @@ function Home() {
     <div>
       <nav>
         
-          <a className={classes.nav} href="Home">
-            <AiFillHome /> Acceuil
-          </a>
-          <a className={classes.nav} href="#">
-            <RiQuestionnaireFill /> A propos de nous
-          </a>
-          <a className={classes.nav} href="#">
+          <Link to='/' className={classes.nav}>
+            <AiFillHome /> Acceuil</Link>
+          
+          <Link className={classes.nav}>
+            <RiQuestionnaireFill /> A propos de nous</Link>
+         
+          <Link className={classes.nav}>
             <GiPerson />
-            Particuliers
-          </a>
-          <a className={classes.nav} href="#">
+            Particuliers</Link>
+        
+          <Link className={classes.nav} >
             <FaUserNurse /> Professionels de la santé
-          </a>
+            </Link>
           <div className={classes.searchBox}>
             <input
               className={classes.searchTxt}
@@ -186,24 +147,13 @@ function Home() {
               name=""
               placeholder="Recherche par produit"
             />
-            <a className={classes.searchBtn} href="#">
+            <Link className={classes.searchBtn} >
               <BsSearch />
-            </a>
+              </Link>
           </div>
       </nav>
-
-      {/* <Button className={classes.btn} variant="outlined" size="large">
-        Matériel d'incontinence
-      </Button>
-      <Button className={classes.btn} variant="outlined" size="large">
-        Matériel professionel
-      </Button>
-      <Button className={classes.btn} variant="outlined" size="large">
-        Matériel medical
-      </Button> */}
-
       <div className={classes.main}>
-        <img className={classes.pic} src={arriereplan} alt="girl" />
+        <img className={classes.pic} src={design} alt="Background picture" />
         <div>
         <h1 className={classes.title}>Cherchez et trouvez tous <br/> les équipements médicaux<br/>   nécessaires en un seul clic.</h1>
         <p className={classes.paragraph}>
