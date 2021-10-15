@@ -63,7 +63,8 @@ const useStyles = makeStyles({
     
   },
   nav: {
-    textDecoration: "underline",
+    borderBottom:'solid black',
+    textDecoration:'none',
     transition: "1s",
     marginLeft: 30,
     color: "black",
