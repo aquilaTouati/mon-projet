@@ -19,6 +19,22 @@ import tensiometre from "../images.jpg/tensiometre.jpg";
 import chair from "../images.jpg/chair.jpg";
 import crutch from "../images.jpg/crutch.jpg";
 import diaper from "../images.jpg/diaper.jpg";
+import icon1 from "../images.jpg/icons8-microbe.png";
+import icon2 from "../images.jpg/tensiometre.png";
+import icon3 from "../images.jpg/sleep.png";
+import icon4 from "../images.jpg/firstaid.png";
+import icon5 from "../images.jpg/bienetre.png";
+import icon6 from "../images.jpg/complements.png";
+import icon7 from "../images.jpg/wheelchair.png";
+import icon8 from "../images.jpg/pillow.png";
+import icon9 from "../images.jpg/icon9.png";
+import icon10 from "../images.jpg/icon10.png";
+import icon11 from "../images.jpg/icon11.png";
+import icon12 from "../images.jpg/icon12.png";
+import icon13 from "../images.jpg/icon13.png";
+import icon14 from "../images.jpg/icon14.png";
+import icon15 from "../images.jpg/icon15.png";
+import icon16 from "../images.jpg/icon16.png";
 
 const useStyles = makeStyles({
   btn: {
@@ -71,6 +87,7 @@ const useStyles = makeStyles({
   spans: {
     display: "flex",
     justifyContent: "space-evenly",
+    
   },
   navbar: {
     paddingTop: 20,
@@ -216,7 +233,58 @@ const useStyles = makeStyles({
   },
   place:{
     textAlign:'center',
-  }
+  },
+  iconItem:{
+    display:"flex",
+    alignContent:"row",
+    width:"100%",
+    paddingRight:"14rem",
+    "&:hover":{
+      cursor:"pointer",
+      backgroundColor:"#D9E8E8",
+      
+    },
+  },
+  minicon:{
+  width:"6%",
+  height:"2%",
+  marginLeft:"1rem",
+  },
+  borderBottom:{
+    borderBottom:"1px solid white",
+    marginTop:"10rem",
+    width:"86%",
+    marginLeft:'8rem',
+  },
+  menu2:{
+    width:"30%",
+    marginTop:"3.7rem",
+    marginLeft:"-3.5rem",
+    
+  },
+  menu3:{
+    width:"40%",
+    marginTop:"3.7rem",
+    marginLeft:"-2.5rem",
+  },
+  menu4:{
+    width:"40%",
+    marginTop:"3.7rem",
+    marginLeft:"-0.7rem",
+  },
+  general:{
+    marginTop: "7rem",
+    position:"absolute",
+    fontSize:"25px",
+    color:'white',
+    marginLeft:'8rem',
+  },
+  all:{
+    color:"white",
+    opacity:0.7,
+    fontSize:"18px",
+    marginLeft:"8rem",
+  },
  
 });
 function Profile() {
@@ -226,9 +294,15 @@ function Profile() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEll, setAnchorEll] = React.useState(null);
   const [anchorElll, setAnchorElll] = React.useState(null);
+  const [anchorEllll, setAnchorEllll] = React.useState(null);
+  const [anchorElllll, setAnchorElllll] = React.useState(null);
+  const [anchorEllllll, setAnchorEllllll] = React.useState(null);
   const open = Boolean(anchorEl);
   const open1 = Boolean(anchorEll);
   const open2 = Boolean(anchorElll);
+  const open3 = Boolean(anchorEllll);
+  const open4 = Boolean(anchorElllll);
+  const open5 = Boolean(anchorEllllll);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -238,6 +312,15 @@ function Profile() {
   const handleClick2 = (event) => {
     setAnchorElll(event.currentTarget);
   };
+  const handleClick3 = (event) => {
+    setAnchorEllll(event.currentTarget);
+  };
+  const handleClick4 = (event) => {
+    setAnchorElllll(event.currentTarget);
+  };
+  const handleClick5 = (event) => {
+    setAnchorEllllll(event.currentTarget);
+  };
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -246,6 +329,15 @@ function Profile() {
   };
   const handleClose2 = () => {
     setAnchorElll(null);
+  };
+  const handleClose3 = () => {
+    setAnchorEllll(null);
+  };
+  const handleClose4 = () => {
+    setAnchorElllll(null);
+  };
+  const handleClose5 = () => {
+    setAnchorEllllll(null);
   };
 
   return (
@@ -433,22 +525,207 @@ function Profile() {
         </header>
       </div>
       <main>
-        {/* categories */}
+        {/* Categories start here */}
         <div className={classes.spans}>
-          <Button className={classes.materiel} variant="outlined" size="large">
+          <Button   
+              variant="outlined"
+              size="large"
+              id="fade-button"
+              aria-controls="fade-menu"
+              aria-haspopup="true"
+              aria-expanded={open3 ? "true" : undefined}
+              onClick={handleClick3}
+              variant="outlined"
+              size="large" className={classes.materiel} variant="outlined" size="large">
             <MdWheelchairPickup className={classes.med} /> Matériel médical
           </Button>
-          <Button className={classes.materiel} variant="outlined" size="large">
+          <Menu
+              className={classes.menu2}
+              id="fade-menu"
+              MenuListProps={{
+                "aria-labelledby": "fade-button",
+              }}
+              anchorEl={anchorEllll}
+              open={open3}
+              onClose={handleClose3}
+              TransitionComponent={Fade}
+            >
+            <div className={classes.iconItem}> {/* Icon and item */}
+            <img className={classes.minicon} src={icon1}  alt="Covid"/> 
+            <MenuItem className={classes.item2}  onClick={handleClose3}>
+                Covid 19
+              </MenuItem>
+            </div>
+            <div className={classes.iconItem}> {/* Icon and item */}
+            <img className={classes.minicon} src={icon2}  alt="Mesure"/> 
+              <MenuItem className={classes.item2} onClick={handleClose3}>
+                {" "}
+                 Appareils de mesure
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon3}  alt="Sleep"/>
+              <MenuItem className={classes.item2} onClick={handleClose3}>
+                {" "}
+                 Accesoires pour apnées du sommeil
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon4}  alt="Pharma"/>
+              <MenuItem className={classes.item2} onClick={handleClose3}>
+                {" "}
+                Trousse de pharmacie
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon5}  alt="Bien etre"/>
+              <MenuItem className={classes.buy} onClick={handleClose3}>
+                {" "}
+                 Bien etre
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon6}  alt="Complements alimentaires"/>
+              <MenuItem className={classes.buy} onClick={handleClose3}>
+                {" "}
+                 Complements alimentaires
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon7}  alt="Chaises et cannes"/>
+              <MenuItem className={classes.buy} onClick={handleClose3}>
+                {" "}
+                Cannes et chaises roulantes
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon8}  alt="Coussins"/>
+              <MenuItem className={classes.buy} onClick={handleClose3}>
+                {" "}
+                 Coussins et assises spécifiques
+              </MenuItem>
+              </div>
+            </Menu>
+          
+          <Button variant="outlined"
+              size="large"
+              id="fade-button"
+              aria-controls="fade-menu"
+              aria-haspopup="true"
+              aria-expanded={open4 ? "true" : undefined}
+              onClick={handleClick4}
+              variant="outlined"
+              size="large" className={classes.materiel} variant="outlined" size="large" className={classes.materiel} variant="outlined" size="large">
             <FaStethoscope className={classes.pro} />
             Matériel professionel
           </Button>
-          <Button className={classes.materiel} variant="outlined" size="large">
+          <Menu
+              className={classes.menu3}
+              id="fade-menu"
+              MenuListProps={{
+                "aria-labelledby": "fade-button",
+              }}
+              anchorEl={anchorElllll}
+              open={open4}
+              onClose={handleClose4}
+              TransitionComponent={Fade}
+            >
+
+               <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon9}  alt="Equipements"/>
+              <MenuItem className={classes.buy} onClick={handleClose4}> 
+                {" "}
+                 Equipements medicaux
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon10}  alt="Soins"/>
+              <MenuItem className={classes.buy} onClick={handleClose4}>
+                {" "}
+                 Soins et pensements
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon11}  alt="Diagnostique"/>
+              <MenuItem className={classes.buy} onClick={handleClose4}>
+                {" "}
+                 Diagnostique et autocontrol
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon12}  alt="Diagnostique"/>
+              <MenuItem className={classes.buy} onClick={handleClose4}>
+                {" "}
+                 Hygiène et désinfection
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon13}  alt="Diagnostique"/>
+              <MenuItem className={classes.buy} onClick={handleClose4}>
+                {" "}
+                 Consommables
+              </MenuItem>
+              </div>
+             
+            </Menu>
+          <Button variant="outlined"
+              size="large"
+              id="fade-button"
+              aria-controls="fade-menu"
+              aria-haspopup="true"
+              aria-expanded={open5 ? "true" : undefined}
+              onClick={handleClick5}
+              variant="outlined"
+              size="large"  className={classes.materiel} variant="outlined" size="large">
             <BsFillDropletFill className={classes.drop} />
             Produits d'incontinence
           </Button>
+          <Menu
+              className={classes.menu4}
+              id="fade-menu"
+              MenuListProps={{
+                "aria-labelledby": "fade-button",
+              }}
+              anchorEl={anchorEllllll}
+              open={open5}
+              onClose={handleClose5}
+              TransitionComponent={Fade}
+            >
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon16}  alt="Diagnostique"/>
+              <MenuItem className={classes.buy} onClick={handleClose5}>
+                {" "}
+                Hygiène et soins du corps
+              </MenuItem>
+              </div>
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon15}  alt="Diagnostique"/>
+              <MenuItem className={classes.buy} onClick={handleClose5}>
+                {" "}
+                 Alèses jetables
+              </MenuItem>
+              </div>
+            
+              <div className={classes.iconItem}> {/* Icon and item */}
+              <img className={classes.minicon} src={icon14}  alt="Diagnostique"/>
+              <MenuItem className={classes.buy} onClick={handleClose5}>
+                {" "}
+                 Couches adultes/enfants
+              </MenuItem>
+              </div>
+              
+             
+            </Menu>
         </div>
+        {/* Categories end here */}
+        <h1 className={classes.general}> Tous les matériaux </h1>
+        {/* separation */}
+        <div className={classes.borderBottom}>
+        <div> </div>
+        </div>
+         {/* separation */}
+         <p className={classes.all}>Disponible à l’achat, à la location, ou au don; découvrez toutes les catégories des matériaux médicaux qui peuvent améliorer votre quotidien. </p>
         <section className={classes.materialsMenu}>
-          
           <div className={classes.content}>
             <div className={classes.box}>
               <div className={classes.inboxx}>
