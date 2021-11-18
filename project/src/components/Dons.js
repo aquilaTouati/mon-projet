@@ -15,6 +15,7 @@ import { RiNotification2Line } from "react-icons/ri";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
+import upload from "../images.jpg/upload.svg"
 import form from "../images.jpg/form.png";
 import ReactDOM from 'react-dom';
 
@@ -146,14 +147,15 @@ paddingBottom:"2.1rem",
   },
   
   container: {
-    marginLeft: "30rem",
+    marginLeft: "50rem",
   
    boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 15px",
    paddingLeft:"5rem",
    position:"absolute",
    marginTop:"5rem",
    borderRadius:"10%",
-   backgroundColor:"white",
+   backgroundColor:'white',
+   
    
    
     
@@ -204,12 +206,10 @@ marginLeft:"1rem",
   },
   
   pic:{
-   
-   width:"50%",
-   float:"right",
-  marginBottom:"-6rem",
-  marginTop:"8rem",
-  marginRight:"-4rem",
+   position:"absolute",
+   width:"40%",
+   marginTop:"6rem",
+   marginLeft:"3rem",
   },
 etat:{
   
@@ -331,183 +331,6 @@ function Dons({ onSuccess }) {
 
   return (
     <div className={classes.page}>
-  
-      <div className={classes.navbar}>
-        <header>
-          <nav>
-            <span
-              className={classes.back}
-              onClick={() => {
-                history.goBack();
-              }}
-            >
-              <IoMdArrowRoundBack /> Précédent
-            </span>
-
-             {/* Vente */}
-             <span
-              id="fade-button"
-              aria-controls="fade-menu"
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
-              className={classes.btn}
-              variant="outlined"
-              size="large"
-            >
-              Vente
-              <AiOutlineCaretDown />{" "}
-            </span>
-
-            <Menu
-              className={classes.menu}
-              id="fade-menu"
-              MenuListProps={{
-                "aria-labelledby": "fade-button",
-              }}
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              TransitionComponent={Fade}
-            >
-              <MenuItem
-                className={classes.buy}
-                onClick={handleClose}
-                onClick={() => {
-                  history.push(`/Vente`);
-                }}
-              >
-                {" "}
-                <MdAddCircle className={classes.item} />
-                Vendre un article
-              </MenuItem>
-              <MenuItem className={classes.buy} onClick={handleClose}>
-                {" "}
-                <MdAddCircle className={classes.item} /> Acheter un article
-              </MenuItem>
-            </Menu>
-            {/* Vente */}
-
-            {/* Location */}
-            <span
-              className={classes.btn}
-              variant="outlined"
-              size="large"
-              id="fade-button"
-              aria-controls="fade-menu"
-              aria-haspopup="true"
-              aria-expanded={open1 ? "true" : undefined}
-              onClick={handleClick1}
-              className={classes.btn}
-              variant="outlined"
-              size="large"
-            >
-              Location
-              <AiOutlineCaretDown />
-            </span>
-            <Menu
-              className={classes.menu}
-              id="fade-menu"
-              MenuListProps={{
-                "aria-labelledby": "fade-button",
-              }}
-              anchorEl={anchorEll}
-              open={open1}
-              onClose={handleClose1}
-              TransitionComponent={Fade}
-            >
-              <MenuItem className={classes.buy} onClick={handleClose1}>
-                {" "}
-                <MdAddCircle className={classes.item} />
-                Mettre un article en location
-              </MenuItem>
-              <MenuItem
-                className={classes.buy}
-                onClick={handleClose1}
-                onClick={() => {
-                  history.push(`/Location`);
-                }}
-              >
-                {" "}
-                <MdAddCircle className={classes.item} /> Louer un produit
-              </MenuItem>
-            </Menu>
-            {/* Location */}
-
-            {/* Don */}
-            <span
-              className={classes.btn}
-              variant="outlined"
-              size="large"
-              className={classes.btn}
-              variant="outlined"
-              size="large"
-              id="fade-button"
-              aria-controls="fade-menu"
-              aria-haspopup="true"
-              aria-expanded={open2 ? "true" : undefined}
-              onClick={handleClick2}
-              className={classes.btn}
-              variant="outlined"
-              size="large"
-            >
-              Dons
-              <AiOutlineCaretDown />
-            </span>
-            <Menu
-              className={classes.menu}
-              id="fade-menu"
-              MenuListProps={{
-                "aria-labelledby": "fade-button",
-              }}
-              anchorEl={anchorElll}
-              open={open2}
-              onClose={handleClose2}
-              TransitionComponent={Fade}
-            >
-              <MenuItem
-                className={classes.buy}
-                onClick={handleClose2}
-                onClick={() => {
-                  history.push(`/Dons`);
-                }}
-              >
-                {" "}
-                <MdAddCircle className={classes.item} />
-                Faire un don
-              </MenuItem>
-              <MenuItem className={classes.buy} onClick={handleClose2}>
-                {" "}
-                <MdAddCircle className={classes.item} /> Chercher un don
-              </MenuItem>
-            </Menu>
-            {/* Don */}
-
-            <div className={classes.searchBox}>
-              <input
-                className={classes.searchTxt}
-                type="text"
-                name=""
-                placeholder="Recherche par produit"
-              />
-              <a className={classes.loupe} href="#">
-                <FiSearch />
-              </a>
-            </div>
-            <div className={classes.icons}>
-              <span className={classes.acc}>
-                {" "}
-                <RiAccountCircleFill />
-                <AiOutlineCaretDown />{" "}
-              </span>
-              <span className={classes.notif}>
-                {" "}
-                <RiNotification2Line />{" "}
-              </span>
-            </div>
-          </nav>
-        </header>
-      </div>
 
      
       <div className={classes.container}>
@@ -561,8 +384,8 @@ function Dons({ onSuccess }) {
         </div>
         
       </div>
-
-      {/* <img src className={classes.pic} src={form} alt="Background picture" />  */}
+      <img  className={classes.pic} src={upload} alt="Background picture" /> 
+        
     </div>
   );
 }
