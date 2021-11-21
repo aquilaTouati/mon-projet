@@ -4,31 +4,21 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
-import { FiSearch } from "react-icons/fi";
 import { FaHandHoldingMedical } from "react-icons/fa";
-import { Menu } from "@material-ui/core";
-import { MenuItem } from "@material-ui/core";
-import { Fade } from "@material-ui/core";
-import { MdAddCircle } from "react-icons/md";
-import { RiAccountCircleFill } from "react-icons/ri";
-import { RiNotification2Line } from "react-icons/ri";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { AiOutlineCaretDown } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
-import form from "../images.jpg/form.png";
-import ReactDOM from "react-dom";
+import action from "../action";
+import {useDispatch, useSelector} from "react-redux";
 
 const useStyles = makeStyles({
   page: {
-    backgroundImage: "linear-gradient(-15deg, #2CA4A8 20%, #0E2F5B 100% )",
+    backgroundImage: "linear-gradient(-15deg, #C0D3D4 10%, #266D70 100% )",
     height: "50rem",
     marginRight: "-0.5rem",
     marginLeft: "-1rem",
     marginTop: "-5rem",
-    paddingBottom:"8rem",
-    
+    paddingBottom: "8rem",
   },
- 
+
   buy: {
     "&:hover": {
       cursor: "pointer",
@@ -43,17 +33,16 @@ const useStyles = makeStyles({
     color: "white",
   },
 
- 
   container: {
     marginLeft: "27rem",
-color:"white",
-  // boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px",
+    color: "white",
+    // boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px",
     paddingLeft: "7rem",
-    paddingRight:"7rem",
+    paddingRight: "7rem",
     position: "absolute",
     marginTop: "10rem",
     borderRadius: 10,
-    backgroundColor: "rgb(0,0,0,0.4)",
+    backgroundColor: "rgb(0,0,0,0.3)",
   },
   label: {
     fontSize: "20px",
@@ -84,7 +73,7 @@ color:"white",
     fontFamily: "Poppins, sans-serif",
     fontSize: "15px",
     width: "34%",
-    color:"white",
+    color: "white",
     marginLeft: "1rem",
   },
 
@@ -96,13 +85,13 @@ color:"white",
     fontSize: "20px",
     marginLeft: "1rem",
     width: "63%",
-    paddingTop:"3rem",
-    paddingBottom:"3rem",
-    borderRadius:5,
+    paddingTop: "3rem",
+    paddingBottom: "3rem",
+    borderRadius: 5,
     "&:hover": {
       cursor: "pointer",
       backgroundColor: "#BACAD9",
-      border:"none",
+      border: "none",
     },
   },
 
@@ -122,7 +111,7 @@ color:"white",
     fontSize: "15px",
     marginLeft: "1rem",
     width: "20%",
-    color:"white",
+    color: "white",
   },
   nom: {
     border: "none",
@@ -133,7 +122,7 @@ color:"white",
     fontSize: "15px",
     marginLeft: "1rem",
     width: "51%",
-    color:"white"
+    color: "white",
   },
   categorie: {
     border: "none",
@@ -143,9 +132,8 @@ color:"white",
     fontFamily: "Poppins, sans-serif",
     fontSize: "15px",
     marginLeft: "1rem",
-    color:"white",
+    color: "white",
     width: "47%",
-    
   },
   prix: {
     border: "none",
@@ -154,7 +142,7 @@ color:"white",
     borderBottom: "2px solid white",
     fontFamily: "Poppins, sans-serif",
     fontSize: "15px",
-color:"white",
+    color: "white",
     marginLeft: "1rem",
     width: "54%",
   },
@@ -183,15 +171,14 @@ color:"white",
       color: "white",
     },
   },
-  title:{
-    paddingBottom:"2rem",
+  title: {
+    paddingBottom: "2rem",
   },
-  option:{
-    color:"black",
+  option: {
+    color: "black",
   },
-
 });
-function Vente({ onSuccess }) {
+function Vente({ onSuccess }, props) {
   const history = useHistory();
   const classes = useStyles();
 
@@ -220,7 +207,10 @@ function Vente({ onSuccess }) {
         toast.error("Upload Error");
       });
   };
-
+  const [price, setPrice] = useState();
+  const productsList = useSelector((state)=> state.productsList);
+  const dispatch = useDispatch();
+ 
   return (
     <div className={classes.page}>
       <div className={classes.container}>
@@ -242,7 +232,7 @@ function Vente({ onSuccess }) {
 
         <div className={classes.inputLabel}>
           <label className={classes.label}>Prix du matériel: </label>
-          <input className={classes.prix} type="" placeholder="En Dinars" />
+          <input className={classes.prix} value={price} onChange ={(e)=> setPrice(e.target.value)} type="" placeholder="En Dinars" />
         </div>
 
         <div className={classes.inputLabel}>
@@ -279,18 +269,18 @@ function Vente({ onSuccess }) {
               onChange={onInputChange}
               multiple
             />
-      
           </form>
-
-          <button type="submit" className={classes.button}>
+         
+           <button onClick={dispatch(action.ADD({prix:price}))} type="submit" className={classes.button}>
             {" "}
             Ajouter{" "}
-          </button>
+          </button> 
         </div>
       </div>
 
       {/* <img src className={classes.pic} src={form} alt="Background picture" />  */}
     </div>
+  
   );
 }
 

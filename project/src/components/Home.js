@@ -1,21 +1,15 @@
 import React from "react";
-import { BsSearch } from "react-icons/bs";
 import { MdPersonAddAlt1, MdOutlineArrowForwardIos } from "react-icons/md";
 import { BiLogIn } from "react-icons/bi";
-import { AiFillHome, AiFillLinkedin } from "react-icons/ai";
-import { RiQuestionnaireFill} from "react-icons/ri";
-import { GiPerson } from "react-icons/gi";
 import "../styles.css/home.css";
-import { FaUserNurse,FaTwitterSquare,FaStethoscope,FaExchangeAlt } from "react-icons/fa";
+import { FaUserNurse,FaStethoscope,FaExchangeAlt } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import design from "../images.jpg/mainbackground.png";
-import wavee from "../images.jpg/waveee.svg";
-import wave from "../images.jpg/wave.svg";
 import medecins from "../images.jpg/medecins.png";
 import team from "../images.jpg/team.png";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { BsFacebook, BsInstagram} from "react-icons/bs";
+
 
  
 
@@ -79,14 +73,7 @@ const useStyles = makeStyles({
     marginLeft: "-8rem",
     color:"white"
   },
-  footer:{
-backgroundColor:"#2C4D5B",
-marginBottom:"-5rem",
-marginLeft:"-5rem",
-marginRight:"-0.5rem",
-paddingTop:"6rem",
-
-  },
+ 
 apropos:{
 //   width:"35%",
   fontSize:"20px",
@@ -143,14 +130,7 @@ apropos:{
   //   fontSize:40,
   //   color:"black",
   // },
-  social:{
-    marginLeft:"15rem",
-    wordSpacing:"5em",
-    fontSize:"29px",
-    marginTop:"-4rem",
-    color:"#BACAD9",
-    
-  },
+ 
   
   story:{
   display: "flex",
@@ -328,17 +308,7 @@ function Home() {
       
       
     
-      <div className={classes.footer}>
-      <footer> 
-      <div className={classes.social}>
-      <span><BsFacebook className={classes.facebook}/>  </span>
-      
-      <span> <BsInstagram />  </span> 
-      <span> <AiFillLinkedin/>  </span>  
-      <span> <FaTwitterSquare/>  </span>  
-      </div>
-      </footer>
-      </div>
+     
       
       
     </div>

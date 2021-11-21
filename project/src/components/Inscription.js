@@ -6,8 +6,6 @@ import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import avatar from "../images.jpg/avatar.png";
-import phone from "../images.jpg/phone.svg";
-import wave from "../images.jpg/wave.png";
 import { BsSearch,BsFacebook, BsInstagram } from "react-icons/bs";
 import "../styles.css/design.css";
 import { MdWavingHand } from "react-icons/md";

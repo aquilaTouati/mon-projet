@@ -14,28 +14,42 @@ import { ToastContainer } from "react-toastify";
 import Dons from "./components/Dons";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Data from "./data.json";
+import Materiel from "./components/Materiel";
+
 
 function App() {
   const [files, setFiles] = useState([]);
   const onSuccess = (savedFiles) => {
     setFiles(savedFiles);
   };
-
+  
+  
   return (
     <div>
+       
       <Router>
         {/* <Switch> */}
         <Route exact path="/">
           <Navbar />
         </Route>
+
+        <Route exact path="Materiel">
+          <Materiel  />
+          
+        </Route>
         <Route exact path="/">
-          <Home />
+          <Home  />
         </Route>
         <Route exact path="/Inscription">
           <Inscription />
         </Route>
         <Route exact path="/Connection">
           <Connection />
+        </Route>
+        <Route exact path="/Materiel">
+          <Header />
         </Route>
         <Route exact path="/Profile">
           <Header />
@@ -57,16 +71,17 @@ function App() {
           <Dons />
         </Route>
         <Route exact path="/Vente">
-          <Vente onSuccess={onSuccess} />
+          <Vente onSuccess={onSuccess}  />
         </Route>
         <Route exact path="/Location">
           <Location />
         </Route>
         <Preview files={files} />
-        <ToastContainer />
-
+        <ToastContainer /> 
+        
         {/* </Switch> */}
       </Router>
+      <Footer/>
       {/* Second router */}
     </div>
   );

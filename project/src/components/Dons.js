@@ -15,99 +15,22 @@ import { RiNotification2Line } from "react-icons/ri";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
-import upload from "../images.jpg/upload.svg"
+import upload from "../images.jpg/upload.svg";
 import form from "../images.jpg/form.png";
 import ReactDOM from 'react-dom';
 
 const useStyles = makeStyles({
-  btn: {
-    width: 200,
-    padding: 10,
-    height: 40,
-paddingBottom:"2.1rem",
-    borderLeft: "1px",
-    marginLeft: 50,
-    marginTop: 35,
-    color: "white",
-    transition: "color 0.5s linear",
-    fontFamily: "Poppins, sans-serif",
-    fontSize: 17,
-    fontWeight: "bold",
-    "&:hover": {
-      cursor: "pointer",
-      borderColor: "#234547",
-      borderBottom: "solid white",
-    },
-  },
-  navbar: {
-    paddingTop: 20,
-    marginTop: -10,
-    paddingBottom: 20,
-    marginLeft: -10,
-    marginRight: -10,
-    
-// backgroundImage: "linear-gradient(-15deg, #2CA4A8 30%, #0E2F5B 100%)",
-    //  boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 15px",
-  },
- page:{
-  backgroundImage: "linear-gradient(-15deg, #2CA4A8 20%, #0E2F5B 100% )",
-  height:"50rem",
-  marginRight:"-0.5rem",
-  marginLeft:'-1rem',
- },
-  back: {
-    fontFamily: "Poppins, sans-serif",
-    color: "white",
-    fontSize: 17,
-    marginLeft: 15,
-    "&:hover": {
-      cursor: "pointer",
-      backgroundColor: "#476E70",
-      borderRadius: 50,
-      paddingTop: 10,
-      paddingBottom: 10,
-      paddingRight: 10,
-    },
-  },
-  searchBox: {
-    position: "absolute",
-    top: 30,
-    left: 1000,
-    transform: "translate(-50%,-50%)",
-    background: "#CAE5E6",
-    borderRadius: 15,
-    height: 40,
-    paddingLeft: 90,
-    paddingRight: 10,
-    transition: "0.1s",
+ 
 
-    "&:hover": {
-      cursor: "pointer",
-      backgroundColor: "#BACAD9",
-    },
+  page: {
+    backgroundImage: "linear-gradient(-15deg, #C0D3D4 10%, #266D70 100% )",
+    height: "50rem",
+    marginRight: "-0.5rem",
+    marginLeft: "-1rem",
+    marginTop: "-5rem",
+    paddingBottom: "8rem",
   },
-  loupe: {
-    color: "#618E8F",
-    float: "right",
-    marginLeft: 20,
-    wdith: 40,
-    height: 40,
-    fontSize: 30,
-    background: "none",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  searchTxt: {
-    border: "none",
-    background: "none",
-    outline: "none",
-    float: "left",
-    padding: 0,
-    color: "white",
-    lineHeight: 3,
-    color: " black",
-  },
+ 
   drop: {
     color: "blue",
     marginRight: 15,
@@ -137,145 +60,156 @@ paddingBottom:"2.1rem",
     color: "white",
   },
 
-  notif: {
-    marginRight: 35,
-    fontSize: 30,
-  },
-  acc: {
-    fontSize: 30,
-    marginRight: 20,
-  },
   
   container: {
-    marginLeft: "50rem",
-  
-   boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 15px",
-   paddingLeft:"5rem",
-   position:"absolute",
-   marginTop:"5rem",
-   borderRadius:"10%",
-   backgroundColor:'white',
-   
-   
-   
-    
-  
+    marginLeft: "27rem",
+    color: "white",
+    // boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px",
+    paddingLeft: "7rem",
+    paddingRight: "7rem",
+    position: "absolute",
+    marginTop: "10rem",
+    borderRadius: 10,
+    backgroundColor: "rgb(0,0,0,0.3)",
   },
   label: {
-    fontSize: 25,
+    fontSize: "20px",
 
     // display: "block",
   },
-  
+
   inputLabel: {
     display: "flex",
     flexDirection: "row",
-   
+
     marginBottom: 30,
   },
   // label2:{
   //   marginLeft:70,
   //   fontSize: 25,
   // },
-  ville:{
-    marginLeft:"2rem",
-    fontSize: 25,
-  },
- 
-  alger:{border:"none",
-  background:"none",
-  outline:"none",
-  borderBottom:"2px solid black",
- fontFamily: "Poppins, sans-serif",
- fontSize:"15px",
-width:"30.7%",
-marginLeft:"1rem",
-    
-  
-  },
- 
-  informations:{
-    border:"none",
-   background:"none",
-   outline:"none",
-   borderBottom:"2px solid black",
-  fontFamily: "Poppins, sans-serif",
-  fontSize:"15px",
-  marginLeft:"1rem",
-  width:"58%",
-  },
-  
-  pic:{
-   position:"absolute",
-   width:"40%",
-   marginTop:"6rem",
-   marginLeft:"3rem",
-  },
-etat:{
-  
-  border:"none",
-  background:"none",
-  outline:"none",
-  borderBottom:"2px solid black",
- fontFamily: "Poppins, sans-serif",
- fontSize:"15px",
- marginLeft:"1rem",
- width:"20%",
-},
-  nom:{
-    border:"none",
-   background:"none",
-   outline:"none",
-   borderBottom:"2px solid black",
-  fontFamily: "Poppins, sans-serif",
-  fontSize:"15px",
-  marginLeft:"3rem",
-  width:"40%",
-    
-  },
-  categorie:{
-    border:"none",
-  background:"none",
-  outline:"none",
-  borderBottom:"2px solid black",
- fontFamily: "Poppins, sans-serif",
- fontSize:"15px",
- marginLeft:"1rem",
- width:"41%",
+  ville: {
+    marginLeft: "2rem",
+    fontSize: "20px",
   },
 
-  file:{
-   
-    fontSize:15,
-    // marginLeft: 35,
-    width:"40%",
-    marginLeft:"4em",
-    marginTop:8, 
-  
-  },
-  button:{
-    marginLeft: "10em",
-    marginBottom:"2rem",
-    fontSize:20,
-    backgroundColor:"#1A9B9F ",
-    borderRadius:"10px",
+  alger: {
+    border: "none",
+    background: "none",
+    outline: "none",
+    borderBottom: "2px solid white",
     fontFamily: "Poppins, sans-serif",
-    transition:"ease-out 0.4s",
-    border:"none",
-    width:"25%",
-    color:"white",
+    fontSize: "15px",
+    width: "34%",
+    color: "white",
+    marginLeft: "1rem",
+  },
+
+  informations: {
+    border: "none",
+    // background: "none",
+    outline: "none",
+    fontFamily: "Poppins, sans-serif",
+    fontSize: "20px",
+    marginLeft: "1rem",
+    width: "63%",
+    paddingTop: "3rem",
+    paddingBottom: "3rem",
+    borderRadius: 5,
     "&:hover": {
       cursor: "pointer",
-      boxShadow: "inset 170px 0 0 0 #0E2F5B",
+      backgroundColor: "#BACAD9",
+      border: "none",
+    },
+  },
+
+  pic: {
+    width: "30%",
+    float: "right",
+    marginBottom: "-6rem",
+    marginTop: "20rem",
+    marginRight: "-1rem",
+  },
+  etat: {
+    border: "none",
+    background: "none",
+    outline: "none",
+    borderBottom: "2px solid white",
+    fontFamily: "Poppins, sans-serif",
+    fontSize: "15px",
+    marginLeft: "1rem",
+    width: "20%",
+    color: "white",
+  },
+  nom: {
+    border: "none",
+    background: "none",
+    outline: "none",
+    borderBottom: "2px solid white",
+    fontFamily: "Poppins, sans-serif",
+    fontSize: "15px",
+    marginLeft: "1rem",
+    width: "51%",
+    color: "white",
+  },
+  categorie: {
+    border: "none",
+    background: "none",
+    outline: "none",
+    borderBottom: "2px solid white",
+    fontFamily: "Poppins, sans-serif",
+    fontSize: "15px",
+    marginLeft: "1rem",
+    color: "white",
+    width: "47%",
+  },
+  prix: {
+    border: "none",
+    background: "none",
+    outline: "none",
+    borderBottom: "2px solid white",
+    fontFamily: "Poppins, sans-serif",
+    fontSize: "15px",
+    color: "white",
+    marginLeft: "1rem",
+    width: "54%",
+  },
+
+  file: {
+    fontSize: 15,
+    // marginLeft: 35,
+    width: "50%",
+    marginLeft: "5em",
+    marginTop: 8,
+  },
+  button: {
+    marginLeft: "4.5em",
+    marginBottom: "2rem",
+    fontSize: 20,
+    backgroundColor: "#1A9B9F ",
+    borderRadius: "10px",
+    fontFamily: "Poppins, sans-serif",
+    transition: "ease-out 0.4s",
+    border: "none",
+    width: "65%",
+    color: "white",
+    "&:hover": {
+      cursor: "pointer",
+      boxShadow: "inset 371px 0 0 0 #0E2F5B",
       color: "white",
     },
-
   },
- 
+  title: {
+    paddingBottom: "2rem",
+  },
+  option: {
+    color: "black",
+  },
+  
  
 });
-function Dons({ onSuccess }) {
- 
+function Dons({ onSuccess }, props) {
+  
   const history = useHistory();
   const classes = useStyles();
   /*Dropping menu*/
@@ -332,7 +266,7 @@ function Dons({ onSuccess }) {
   return (
     <div className={classes.page}>
 
-     
+
       <div className={classes.container}>
       <h1 className={classes.title}>Faire un don  <FaHandHoldingHeart/></h1>
       <div className={classes.inputLabel}>

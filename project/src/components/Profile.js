@@ -9,16 +9,17 @@ import { BrowserRouter as Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { FaStethoscope } from "react-icons/fa";
 import { MdWheelchairPickup, MdAddCircle } from "react-icons/md";
+import {useDispatch, useSelector} from "react-redux";
 import { BsFillDropletFill } from "react-icons/bs";
 import { Menu, MenuItem, Fade, Button, makeStyles } from "@material-ui/core";
-import Vente from "./Vente";
-import Dons from "./Dons";
-import oxygene from "../images.jpg/oxygene.jpg";
-import steto from "../images.jpg/steto.jpg";
-import tensiometre from "../images.jpg/tensiometre.jpg";
-import chair from "../images.jpg/chair.jpg";
-import crutch from "../images.jpg/crutch.jpg";
-import diaper from "../images.jpg/diaper.jpg";
+// import Vente from "./Vente";
+// import Dons from "./Dons";
+// import oxygene from "../images.jpg/oxygene.jpg";
+// import steto from "../images.jpg/steto.jpg";
+// import tensiometre from "../images.jpg/tensiometre.jpg";
+// import chair from "../images.jpg/chair.jpg";
+// import crutch from "../images.jpg/crutch.jpg";
+// import diaper from "../images.jpg/diaper.jpg";
 import icon1 from "../images.jpg/icons8-microbe.png";
 import icon2 from "../images.jpg/tensiometre.png";
 import icon3 from "../images.jpg/sleep.png";
@@ -35,8 +36,9 @@ import icon13 from "../images.jpg/icon13.png";
 import icon14 from "../images.jpg/icon14.png";
 import icon15 from "../images.jpg/icon15.png";
 import icon16 from "../images.jpg/icon16.png";
+import data from "../data.json";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles({ 
  
   icons: {
     display: "flex",
@@ -65,7 +67,8 @@ const useStyles = makeStyles({
   },
  
   page: {
-    backgroundImage: "linear-gradient(-15deg, #2CA4A8 20%, #0E2F5B 100% )",
+    
+    backgroundImage: "linear-gradient(-15deg, #C0D3D4 10%, #266D70 100% )",
     height: "100%",
     marginRight: "-0.5rem",
     marginLeft: "-1rem",
@@ -194,6 +197,7 @@ const useStyles = makeStyles({
 function Profile() {
   const history = useHistory();
   const classes = useStyles();
+  const productsList = useSelector((state)=> state.productsList);
   /*Dropping menu*/
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEll, setAnchorEll] = React.useState(null);
@@ -244,6 +248,7 @@ function Profile() {
     setAnchorEllllll(null);
   };
 
+  
   return (
     <div className={classes.page}>
      
@@ -447,108 +452,41 @@ function Profile() {
         <div> </div>
         </div>
          {/* separation */}
-         <p className={classes.all}>Disponible à l’achat, à la location, ou au don; découvrez toutes les catégories des matériaux médicaux qui peuvent améliorer votre quotidien. </p>
+        <p className={classes.all}>Disponible à l’achat, à la location, ou au don; découvrez toutes les catégories des matériaux médicaux qui peuvent améliorer votre quotidien. </p>
         <section className={classes.materialsMenu}>
           <div className={classes.content}>
-            <div className={classes.box}>
-              <div className={classes.inboxx}>
-                <img
-                  src
-                  className={classes.article}
-                  src={oxygene}
-                  alt="Oxygene"
-                />
-                 <div className={classes.imageOverlay}>
-                 
-                 </div> 
-              </div>
-              <div className={classes.text}>
-                <p className={classes.productName}>Concentrateur d'oxygène portable</p>
-                <p className={classes. place}><FiMapPin/> Constantine</p>
-              </div>
-            </div>
-            <div className={classes.box}>
-              <div className={classes.inboxx}>
-                <img
-                  src
-                  className={classes.article}
-                  src={steto}
-                  alt="Stethoscope"
-                />
-              </div>
-              <div className={classes.text}>
-                
-                <p  className={classes.productName}> Sthétoscope</p>
-                <p className={classes. place}><FiMapPin/> Alger</p>
-              </div>
-            </div>
             
-            <div className={classes.box}>
-              <div className={classes.inboxx}>
-                <img
-                  src
-                  className={classes.article}
-                  src={tensiometre}
-                  alt="Tensiometre"
-                />
-              </div>
-              <div className={classes.text}>
-                
-                <p className={classes. productName}> Tensiometre</p>
-                <p className={classes. place}><FiMapPin/> Tizi Ouzou</p>
-              </div>
-            </div>
-            </div>
-
-            <div className={classes.content}>
-            <div className={classes.box}>
-              <div className={classes.inboxx}>
-                <img
-                  src
-                  className={classes.article}
-                  src={diaper}
-                  alt="Couches"
-                />
-              </div>
-              <div className={classes.text}>
-                
-                <p className={classes. productName}>Couches réutilisables</p>
-                <p className={classes. place}><FiMapPin/> Alger</p>
-              </div>
-            </div>
-            <div className={classes.box}>
-              <div className={classes.inboxx}>
-                <img
-                  src
-                  className={classes.article}
-                  src={crutch}
-                  alt="Bequilles"
-                />
-              </div>
-              <div className={classes.text}>
-               
-                <p className={classes. productName}> Bequilles</p>
-                <p className={classes. place}><FiMapPin/> Bejaia</p>
-              </div>
-            </div>
+            {productsList?.map( (e)=>
             
-            <div className={classes.box}>
-              <div className={classes.inboxx}>
-                <img
-                  src
-                  className={classes.article}
-                  src={chair}
-                  alt="Chaise roulante"
-                />
-              </div>
-              <div className={classes.text}>
-               
-                <p className={classes. productName}> Chaise roulante</p>
-                <p className={classes. place}><FiMapPin/> Alger</p>
-              </div>
+            {
+              
+             return (
+              <div className={classes.box}>
+              {/* changer par data */}
+           <div className={classes.inboxx}>
+            <img
+              src
+              className={classes.article}
+              src={e.picture}
+              alt="Oxygene"
+            />
+             <div className={classes.imageOverlay}>
+             
+             </div> 
+          </div>
+          <div className={classes.text}>
+            <p className={classes.productName}>{e.name}</p>
+            <p className={classes. place}><FiMapPin/>{e.localisation}</p>
+          </div>
+        </div>
+             )
+            }
+            )
+            }
+          
+                  {/* fin data  */}
             </div>
-            </div>
-            
+           
         </section>
       </main>
     </div>

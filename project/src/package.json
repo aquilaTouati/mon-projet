@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material/menu": "^13.0.0"
+  }
+}

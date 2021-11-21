@@ -3,5 +3,5 @@ export const Preview = ({files}) => {
         return null
     }
 
-    return files.map((file) => <img style={{maxWidth: '500px'}} src={`//localhost:5000/${file.filename}`} alt={file.originalname}/>);
+    return files.map((file) => <img style={{maxWidth: '100%'}} src={`//localhost:5000/${file.filename}`} alt={file.originalname}/>);
 };
