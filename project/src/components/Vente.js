@@ -181,7 +181,9 @@ const useStyles = makeStyles({
 function Vente({ onSuccess }, props) {
   const history = useHistory();
   const classes = useStyles();
-
+  const [price, setPrice] = useState();
+  const productsList = useSelector((state)=> state.productsList);
+  const dispatch = useDispatch();
   /*Picture-uploader*/
   const [files, setFiles] = useState([]);
   const onInputChange = (e) => {
@@ -207,9 +209,7 @@ function Vente({ onSuccess }, props) {
         toast.error("Upload Error");
       });
   };
-  const [price, setPrice] = useState();
-  const productsList = useSelector((state)=> state.productsList);
-  const dispatch = useDispatch();
+  
  
   return (
     <div className={classes.page}>
