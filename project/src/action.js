@@ -1,11 +1,11 @@
- const add  = (data) => ({
+ const addElement = (data) => ({
     type:"ADD",
     payload: data,
 });
 
-const remove = (data) => ({
+const removeElement = (data) => ({
     type:"REMOVE",
     payload: data,
 });
 
-export default {remove, add};
+export default {addElement, removeElement};

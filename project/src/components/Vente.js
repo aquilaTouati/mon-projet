@@ -182,7 +182,7 @@ function Vente({ onSuccess }, props) {
   const history = useHistory();
   const classes = useStyles();
   const [price, setPrice] = useState();
-  const productsList = useSelector((state)=> state.productsList);
+  // const productsList = useSelector((state)=> state.productsList);
   const dispatch = useDispatch();
   /*Picture-uploader*/
   const [files, setFiles] = useState([]);
@@ -271,7 +271,7 @@ function Vente({ onSuccess }, props) {
             />
           </form>
          
-           <button onClick={dispatch(action.ADD({prix:price}))} type="submit" className={classes.button}>
+           <button onClick={dispatch(action.addElement({prix:price}))} type="submit" className={classes.button}>
             {" "}
             Ajouter{" "}
           </button> 
