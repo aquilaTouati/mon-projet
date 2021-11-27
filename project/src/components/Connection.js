@@ -20,7 +20,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const useStyles=makeStyles({
   page:{
-    height:100,
+   
 fontFamily: "Poppins, sans-serif",
 backgroundImage: "linear-gradient(-45deg, #BACAD9 20%, #2C4D5B 100%)",
 height:"50rem",

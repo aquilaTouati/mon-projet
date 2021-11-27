@@ -3,18 +3,24 @@ import { BsSearch } from "react-icons/bs";
 import { AiFillHome, AiFillLinkedin } from "react-icons/ai";
 import { RiQuestionnaireFill} from "react-icons/ri";
 import { GiPerson } from "react-icons/gi";
-import "../styles.css/home.css";
 import { FaUserNurse,FaTwitterSquare,FaStethoscope } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import "../styles.css/design.css"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import wavee from "../images.jpg/waveee.svg";
+// import wavee from "../images.jpg/waveee.svg";
+import shape2 from "../images.jpg/shape2.svg";
 import logo from "../images.jpg/Copharma.png"
 const useStyles = makeStyles({
   shape:{
     position:"absolute",
-    marginLeft:"-3rem",
-    marginTop:"-1rem",
+     marginLeft:"-3rem",
+     marginTop:"-0.5rem",
+    marginRight:"0.5rem",
+    
+   
+    
 
   },
     nav: {
@@ -23,7 +29,6 @@ const useStyles = makeStyles({
       paddingBottom:"1rem",
       marginLeft: 30,
       color: "white",
-      
       fontSize: 18,
       
       "&:hover": {
@@ -102,12 +107,25 @@ const useStyles = makeStyles({
   function Nav() {
     const history = useHistory();
     const classes = useStyles();
+    const [navbar, setNavbar]= useState(false);
+  
+    const changeNav =()=>{
+      console.log(window.scrollY)
+      if(window.scrollY >= 680){
+        setNavbar(true)
+      }else{
+        setNavbar(false)
+      }
+    }
+    window.addEventListener('scroll', changeNav)
+
+
     return (
       <div>
 
 <header>
-<img className={classes.shape} src={wavee} alt="Background picture" />
-<nav className={classes.navbar}>
+{/* <img className={classes.shape} src={shape2} alt="Background picture" /> */}
+<nav /*className={classes.navbar}*/ className={navbar ? 'navbar active': 'navbar'}>
 <Link to='/'>
 <img className={classes.logo} src={logo} alt="logo"/>
 </Link>
@@ -115,14 +133,14 @@ const useStyles = makeStyles({
     <Link to='/' className={classes.nav}>
       Acceuil <AiFillHome /> </Link>
     
-    <Link className={classes.nav}>
+    <Link to="/Apropos"  className={classes.nav}>
       A propos de nous <RiQuestionnaireFill /> </Link>
    
     <Link className={classes.nav}>
       
       Particuliers <GiPerson /></Link>
   
-    <Link className={classes.nav} >
+    <Link to="/EspacePro" className={classes.nav} >
       Espace pro <FaUserNurse />
       </Link>
   </div>

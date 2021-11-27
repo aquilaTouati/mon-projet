@@ -18,6 +18,7 @@ import { useHistory } from "react-router-dom";
 import upload from "../images.jpg/upload.svg";
 import form from "../images.jpg/form.png";
 import ReactDOM from 'react-dom';
+import { motion} from "framer-motion";
 
 const useStyles = makeStyles({
  
@@ -124,7 +125,7 @@ const useStyles = makeStyles({
   },
 
   pic: {
-    width: "30%",
+    width: "20%",
     float: "right",
     marginBottom: "-6rem",
     marginTop: "20rem",
@@ -318,8 +319,17 @@ function Dons({ onSuccess }, props) {
         </div>
         
       </div>
+        {/* framer-motion animation */}{" "}
+        <motion.div
+           initial={{y:0 }}
+           animate={{ opacity: 5, y:100}}
+          transition={{ repeat: Infinity, duration: 2}}
+        >
+            <div>
       <img  className={classes.pic} src={upload} alt="Background picture" /> 
-        
+      </div>
+      </motion.div>{" "}
+        {/* framer-motion animation */}
     </div>
   );
 }

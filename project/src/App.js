@@ -15,32 +15,41 @@ import Dons from "./components/Dons";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import EspacePro from "./components/EspacePro";
+import Apropos from "./components/Apropos";
 import Data from "./data.json";
-import Materiel from "./components/Materiel";
-
 
 function App() {
+  const [productsList, setProductsList] = useState([]);
   const [files, setFiles] = useState([]);
   const onSuccess = (savedFiles) => {
     setFiles(savedFiles);
   };
-  
-  
+
   return (
     <div>
-       
       <Router>
         {/* <Switch> */}
         <Route exact path="/">
           <Navbar />
         </Route>
-
-        <Route exact path="Materiel">
-          <Materiel  />
-          
-        </Route>
         <Route exact path="/">
-          <Home  />
+          <Home />
+        </Route>
+        <Route exact path="/EspacePro">
+          <Navbar />
+        </Route>
+        <Route exact path="/EspacePro">
+          <EspacePro />
+        </Route>
+        <Route exact path="/Apropos">
+          <Navbar />
+        </Route>
+        <Route exact path="/Apropos">
+          <Apropos />
+        </Route>
+        <Route exact path="/Inscription">
+          <Navbar />
         </Route>
         <Route exact path="/Inscription">
           <Inscription />
@@ -55,7 +64,7 @@ function App() {
           <Header />
         </Route>
         <Route exact path="/Profile">
-          <Profile />
+          <Profile productsList={productsList} />
         </Route>
         <Route exact path="/Vente">
           <Header />
@@ -66,23 +75,23 @@ function App() {
         <Route exact path="/Location">
           <Header />
         </Route>
-        
+
         <Route exact path="/Dons">
           <Dons />
         </Route>
         <Route exact path="/Vente">
-          <Vente onSuccess={onSuccess}  />
+          <Vente onSuccess={onSuccess} />
         </Route>
         <Route exact path="/Location">
           <Location />
         </Route>
         <Preview files={files} />
-        <ToastContainer /> 
-        
+        <ToastContainer />
+
         {/* </Switch> */}
+     
       </Router>
-      <Footer/>
-      {/* Second router */}
+      <Footer />
     </div>
   );
 }

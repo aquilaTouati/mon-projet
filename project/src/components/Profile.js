@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles.css/profile.css";
 import { RiAccountCircleFill, RiNotification2Line } from "react-icons/ri";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FiMapPin} from "react-icons/fi";
@@ -199,53 +198,33 @@ function Profile() {
   const classes = useStyles();
   const productsList = useSelector((state)=> state.productsList);
   /*Dropping menu*/
+ 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEll, setAnchorEll] = React.useState(null);
   const [anchorElll, setAnchorElll] = React.useState(null);
-  const [anchorEllll, setAnchorEllll] = React.useState(null);
-  const [anchorElllll, setAnchorElllll] = React.useState(null);
-  const [anchorEllllll, setAnchorEllllll] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const open1 = Boolean(anchorEll);
-  const open2 = Boolean(anchorElll);
-  const open3 = Boolean(anchorEllll);
-  const open4 = Boolean(anchorElllll);
-  const open5 = Boolean(anchorEllllll);
-  const handleClick = (event) => {
+ 
+  const open3 = Boolean(anchorEl);
+  const open4 = Boolean(anchorEll);
+  const open5 = Boolean(anchorElll);
+ 
+  const handleClick3 = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClick1 = (event) => {
+  const handleClick4 = (event) => {
     setAnchorEll(event.currentTarget);
   };
-  const handleClick2 = (event) => {
+  const handleClick5 = (event) => {
     setAnchorElll(event.currentTarget);
   };
-  const handleClick3 = (event) => {
-    setAnchorEllll(event.currentTarget);
-  };
-  const handleClick4 = (event) => {
-    setAnchorElllll(event.currentTarget);
-  };
-  const handleClick5 = (event) => {
-    setAnchorEllllll(event.currentTarget);
-  };
-  const handleClose = () => {
+
+  const handleClose3 = () => {
     setAnchorEl(null);
   };
-  const handleClose1 = () => {
+  const handleClose4 = () => {
     setAnchorEll(null);
   };
-  const handleClose2 = () => {
-    setAnchorElll(null);
-  };
-  const handleClose3 = () => {
-    setAnchorEllll(null);
-  };
-  const handleClose4 = () => {
-    setAnchorElllll(null);
-  };
   const handleClose5 = () => {
-    setAnchorEllllll(null);
+    setAnchorElll(null);
   };
 
   
@@ -273,7 +252,7 @@ function Profile() {
               MenuListProps={{
                 "aria-labelledby": "fade-button",
               }}
-              anchorEl={anchorEllll}
+              anchorEl={anchorEl}
               open={open3}
               onClose={handleClose3}
               TransitionComponent={Fade}
@@ -353,7 +332,7 @@ function Profile() {
               MenuListProps={{
                 "aria-labelledby": "fade-button",
               }}
-              anchorEl={anchorElllll}
+              anchorEl={anchorEll}
               open={open4}
               onClose={handleClose4}
               TransitionComponent={Fade}
@@ -414,7 +393,7 @@ function Profile() {
               MenuListProps={{
                 "aria-labelledby": "fade-button",
               }}
-              anchorEl={anchorEllllll}
+              anchorEl={anchorElll}
               open={open5}
               onClose={handleClose5}
               TransitionComponent={Fade}

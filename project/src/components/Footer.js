@@ -6,19 +6,27 @@ const useStyles = makeStyles({
     footer:{
         backgroundColor:"#2C4D5B",
         marginBottom:"-5rem",
-        marginLeft:"-5rem",
-        marginRight:"-0.5rem",
+        marginLeft:"-0.5rem",
         paddingTop:"6rem",
+        marginRight:"-0.5rem",
+       
         
           },
           social:{
-            marginLeft:"15rem",
+            marginLeft:"7rem",
             wordSpacing:"5em",
             fontSize:"29px",
             marginTop:"-4rem",
             color:"#BACAD9",
             
           },
+    copharm:{
+      float:"right",
+      marginTop:"-2rem",
+      color:"#BACAD9",
+      fontSize:"15px",
+      marginRight:"3rem",
+    }
         });
 
 
@@ -31,14 +39,13 @@ function Footer() {
  <footer> 
  <div className={classes.social}>
  <span><BsFacebook className={classes.facebook}/>  </span>
- 
  <span> <BsInstagram />  </span> 
  <span> <AiFillLinkedin/>  </span>  
  <span> <FaTwitterSquare/>  </span>  
  </div>
+ <h1 className={classes.copharm}>© 2021 Copharm </h1> 
  </footer>
  </div>
-
 </div>
 );
 }

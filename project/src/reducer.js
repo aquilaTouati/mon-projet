@@ -44,9 +44,9 @@ const initialState ={productsList:[
 const listReducer = (state = initialState, action) =>{
 switch (action.type){
     case"ADD":
-    return {list: [...state.productsList, action.payload]};
+    return {productsList: [...state.productsList, action.payload]};
     case "REMOVE":
-    return {list:[...state.productsList.filter((value)=>value.id !== action.payload)]};
+    return {productsList:[...state.productsList.filter((value)=>value.id !== action.payload)]};
 
 }
 };
