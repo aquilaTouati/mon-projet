@@ -17,6 +17,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import EspacePro from "./components/EspacePro";
 import Apropos from "./components/Apropos";
+import Particuliers from "./components/Particuliers";
 import Data from "./data.json";
 
 function App() {
@@ -47,6 +48,12 @@ function App() {
         </Route>
         <Route exact path="/Apropos">
           <Apropos />
+        </Route>
+        <Route exact path="/Particuliers">
+          <Navbar/>
+        </Route>
+        <Route exact path="/Particuliers">
+          <Particuliers/>
         </Route>
         <Route exact path="/Inscription">
           <Navbar />

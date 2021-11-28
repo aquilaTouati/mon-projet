@@ -26,3 +26,12 @@ font-family: 'Poppins', sans-serif;
  .details {
     margin-top: 6rem;
   }
+  .nav {
+    text-decoration:none;
+    transition: 0.1s;
+    padding-bottom:1rem;
+    margin-left: 30;
+    color: white;
+    font-size: 18;
+    
+  }

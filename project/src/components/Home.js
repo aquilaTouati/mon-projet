@@ -122,7 +122,7 @@ const useStyles = makeStyles({
 
 function Home() {
   const classes = useStyles();
-
+ 
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);

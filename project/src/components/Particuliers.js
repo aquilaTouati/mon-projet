@@ -14,140 +14,86 @@ import shape2 from "../images.jpg/shape2.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import trait2 from "../images.jpg/trait2.png";
+import sick from "../images.jpg/sick.png";
+import help from "../images.jpg/help.png";
+import annonce from "../images.jpg/annonce.png";
 const useStyles = makeStyles({
-
- 
-  
-
-  doc: {
-    marginTop: "7rem",
-    width: "60%",
-    marginLeft: "35rem",
+  image: {
+    width: "40%",
+    marginTop:"3rem",
+    marginLeft:"8rem",
+    position:"absolute",
   },
-  paragraph2: {
-    width: "30%",
-    marginLeft: "10rem",
-    marginTop: "10rem",
-    fontSize: 30,
+  image1:{
+      marginLeft:"48rem",
+      marginTop:"2rem",
+      width: "45%",
+      position:"absolute",
   },
-
-  prohealth: {
-    position: "absolute",
-    marginLeft: "6rem",
-  },
-  professionels: {
+  div: {
     display: "flex",
     flexDirection: "row",
-    backgroundImage: "linear-gradient(-45deg, #008E94 20%, #6EBEC2 100%)",
-     marginLeft: "-0.5rem",
-    marginRight: "-0.5rem",
-    
-    marginTop: "-0.5rem",
-    // width:"100%",
-  },
 
-  titrePro: {
-    marginLeft: "3rem",
-    position: "absolute",
   },
- 
-  title: {
-    marginTop: "-25rem",
-    marginLeft: "-8rem",
-    fontSize: 40,
-    color: "white",
-    position: "relative",
+  
+  paragraph1:{
+      marginTop:"10rem",
+      marginLeft:"45rem",
+      width:"40%"
   },
-
-  div: {
-    marginTop: "-57rem",
-    position: "absolute",
-    marginLeft: "20rem",
+  paragraph2:{
+    marginTop:"8rem",
+    marginLeft:"6rem",
+    width:"40%"
   },
-
-  title2: {
-    paddingTop: "5rem",
-    width: "20%",
-    marginLeft: "40rem",
-    fontSize: "35px",
-
-    borderBottom: "3px solid #196794",
+  paragraph3:{
+    marginTop:"9rem",
+    width:"40%",
+    marginLeft:"5rem",
+    paddingBottom:"5rem",
   },
-
-  subparagraph: {
-    marginLeft: "3rem",
-    opacity: "0.7",
-    fontSize: "18px",
-  },
-  details: {
-    marginTop: "10rem",
-  },
-  icon: {
-    fontSize: "30px",
-    paddingRight: "1rem",
-    color: "#0D6C70",
-  },
-
- 
-  h: {
-    fontSize: "20px",
-  },
+  page:{
+    backgroundImage: "linear-gradient(-15deg, #C0D3D4 10%, #9DA5C8 100% )",
+    marginTop:"-0.5rem",
+    marginRight:"-0.5rem",
+    marginLeft:"-0.5rem",
+  }
 });
 
 function EspacePro() {
   const classes = useStyles();
   return (
-    <div>
-      <section className={classes.professionels}>
-        <div className={classes.prohealth}>
-          <h1 className={classes.titrePro2}>Espace Pro</h1>
-
-          <div className="details" data-aos="fade-right">
-            <h2 className={classes.h}>
-              {" "}
-              <FaStethoscope className={classes.icon} /> Equipements et
-              materiaux medicaux professionels
-            </h2>
-            <p className={classes.subparagraph}>
-              Commandez tout l'équipement médical dont vous avez besoin. <br />{" "}
-              Idéal pour les cabinets, cliniques et hôpitaux; vous pouvez
-              trouver <br /> des matériaux neufs ou en bon état vendu par des
-              professionels.
-            </p>
-            <h3 className={classes.h}>
-              <FaUserNurse className={classes.icon} />
-              Selon vos besoins et spécialités
-            </h3>
-            <p className={classes.subparagraph}>
-              Les gammes de matériaux vont de la médecine généraliste <br /> au
-              diagnostic spécialisé
-            </p>
-            <h4 className={classes.h}>
-              <FaExchangeAlt className={classes.icon} />
-              On vous offre la possibilité d'acheter et de vendre
-            </h4>
-            <p className={classes.subparagraph}>
-              Sur notre espace pro, vous pouvez vendre vos matériaux et <br />{" "}
-              en trouver d'autres. Achetez tous les dispositifs nécessaires{" "}
-              <br /> pour équiper votre cabinet, ou mettez en vente vos anciens
-              <br /> équipements.{" "}
-            </p>
-          </div>
-          {/* <button className={classes.discover}>
-    Découvrir <MdOutlineArrowForwardIos className={classes.arrow} />{" "}
-  </button> */}
+    <div className={classes.page}>
+      <div className={classes.div}>
+        <img className={classes.image} src={sick} alt="Background picture" />
+        <div className={classes.paragraph1}>
+          <h1>Vous ou vos proches avez besoin d'un equipement médical?</h1>
+          <p>
+            Faites votre recherche sur le site et trouvez toutes les catégories des matériaux médicaux. Vous avez 3 options: Acheter, louer, ou bénéficier d'un don selon vos besoins. Notre but est de vous mettre en relation avec les personnes qui désirent donner une seconde vie a leurs équipements. 
+          </p>
         </div>
-
-        <img
-          /*className={classes.doc}*/ className="pic"
-          src={propic}
-          alt="Background picture"
-          data-aos="flip-left"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="2000"
-        />
-      </section>
+      </div>
+      <div className={classes.div}>
+        
+        <div className={classes.paragraph2}>
+          <h1>Vous voulez vous sentir utile tout en gagnant de l'argent?</h1>
+          <p>
+            Vendez ou louez votre matériel. Cela vous permetra de réaliser des économies et surtout éviter de vous encombrer avec un fauteuil roulant ou un lit médicalisé non utilisé par exemple.
+          </p>
+        </div>
+        <img className={classes.image1} src={annonce} alt="Background picture" />
+      </div>
+      <div className={classes.div}>
+      <img className={classes.image3} src={help} alt="Background picture" />
+        <div className={classes.paragraph3}>
+          <h1>Vous n'avez plus besoin de votre fauteuil roulant? de vos béquilles? ou tout autre équipement médical durable?</h1>
+          <p>
+          Donner une nouvelle vie à du matériel inutilisé, neuf, ou destiné à être jeté à ceux qui n'auraient pas les moyens de s'équiper autrement. 
+          </p>
+        </div>
+       
+      </div>
+    
     </div>
   );
 }

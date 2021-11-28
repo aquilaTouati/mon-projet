@@ -19,7 +19,7 @@ import trait2 from "../images.jpg/trait2.png";
 const useStyles = makeStyles({
  
   apropos: {
-    //   width:"35%",
+    width:"35%",
     fontSize: "20px",
     marginTop: "13rem",
     marginLeft: "5rem",
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   story: {
     display: "flex",
     flexDirection: "row",
-     backgroundImage: "linear-gradient(-45deg, #008E94 20%, #6EBEC2 100%)",
+     backgroundImage: "linear-gradient(-45deg, #E6F1FF 20%, #75B0FF 100%)",
      marginLeft: "-0.5rem",
     paddingRight: "1rem",
     width:"100%",

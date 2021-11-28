@@ -104,6 +104,9 @@ const useStyles = makeStyles({
   
   });
 
+
+ 
+  
   function Nav() {
     const history = useHistory();
     const classes = useStyles();
@@ -130,13 +133,16 @@ const useStyles = makeStyles({
 <img className={classes.logo} src={logo} alt="logo"/>
 </Link>
 <div className={classes.navs}>
-    <Link to='/' className={classes.nav}>
-      Acceuil <AiFillHome /> </Link>
-    
+
+
+  
+    <Link to='/' className={classes.nav}
+    >
+      Acceuil<AiFillHome /> </Link>
     <Link to="/Apropos"  className={classes.nav}>
       A propos de nous <RiQuestionnaireFill /> </Link>
    
-    <Link className={classes.nav}>
+    <Link to ="/Particuliers" className={classes.nav}>
       
       Particuliers <GiPerson /></Link>
   

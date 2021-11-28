@@ -35,6 +35,7 @@ const useStyles = makeStyles({
   prohealth: {
     position: "absolute",
     marginLeft: "6rem",
+    marginTop:"4rem",
   },
   professionels: {
     display: "flex",
@@ -42,7 +43,7 @@ const useStyles = makeStyles({
     backgroundImage: "linear-gradient(-45deg, #008E94 20%, #6EBEC2 100%)",
      marginLeft: "-0.5rem",
     marginRight: "-0.5rem",
-    
+    paddingBottom:"10rem",
     marginTop: "-0.5rem",
     // width:"100%",
   },
@@ -97,11 +98,14 @@ const useStyles = makeStyles({
 
 function EspacePro() {
   const classes = useStyles();
+  
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <div>
       <section className={classes.professionels}>
         <div className={classes.prohealth}>
-          <h1 className={classes.titrePro2}>Espace Pro</h1>
 
           <div className="details" data-aos="fade-right">
             <h2 className={classes.h}>
