@@ -1,30 +1,17 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core";
-import { useState } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { ToastContainer } from "react-toastify";
-import { FiSearch } from "react-icons/fi";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Menu } from "@material-ui/core";
-import { MenuItem } from "@material-ui/core";
-import { Fade } from "@material-ui/core";
+import React, { useState, useEffect }from "react";
+import { makeStyles, Button, Menu, MenuItem, Fade } from "@material-ui/core";
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import decode from 'jwt-decode';
 import { MdAddCircle, MdPerson } from "react-icons/md";
 import { RiAccountCircleFill, RiNotification2Line } from "react-icons/ri";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { GoSignOut } from "react-icons/go";
-import { useHistory } from "react-router-dom";
 import logo from "../images.jpg/Copharma.png";
+import * as constants from "../constants";
 const useStyles = makeStyles({
   navbar: {
-    // paddingTop: 20,
-    // marginTop: -10,
-    // paddingBottom: 20,
-    // marginLeft: -10,
-    // marginRight: -10,
     marginTop: "2rem",
-    // backgroundImage: "linear-gradient(-15deg, #2CA4A8 30%, #0E2F5B 100%)",
-    //  boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 15px",
   },
   btn: {
     width: "20%",
@@ -143,9 +130,38 @@ const useStyles = makeStyles({
     marginLeft: "-3rem",
   },
 });
-function Header() {
+
+const Header = () =>  {
   const history = useHistory();
   const classes = useStyles();
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  
+ 
+  console.log(user);
+  // const [user,setUser]= useState()
+  const logout = () => {
+    dispatch({ type: constants.LOGOUT });
+
+    history.push('/');
+
+    setUser(null);
+  };
+
+  useEffect(() => {
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+    setUser(JSON.parse(localStorage.getItem('profile')));
+  }, [location]);
   /*Dropping menu*/
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEll, setAnchorEll] = React.useState(null);
@@ -218,7 +234,7 @@ function Header() {
                 className={classes.buy}
                 onClick={handleClose}
                 onClick={() => {
-                  history.push(`/Vente`);
+                  history.push(`/Form`);
                 }}
               >
                 {" "}
@@ -333,17 +349,23 @@ function Header() {
             </Menu>
             {/* Don */}
 
-            <div className={classes.searchBox}>
+            {/* <div className={classes.searchBox}>
               <input
                 className={classes.searchTxt}
                 type="text"
                 name=""
                 placeholder="Recherche par produit"
+                onChange={(event)=>{
+                  setSearchTerm(event.target.value);
+                }}
+                
+               
               />
+             
               <a className={classes.loupe} href="#">
                 <FiSearch />
               </a>
-            </div>
+            </div> */}
             <div className={classes.icons}>
               <span
                 variant="outlined"
@@ -376,10 +398,24 @@ function Header() {
                   {" "}
                   <MdPerson className={classes.item} /> Mon compte
                 </MenuItem>
-                <MenuItem onClick={handleClose3}>
-                  {" "}
-                  <GoSignOut className={classes.item} /> Déconnexion
+
+        <div >
+        {user?.result ? (
+          <div className={classes.profile}>
+           {/* <Avatar className={classes.purple} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar> */}
+            {/* <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography> */}
+            <MenuItem onClick={handleClose3} onClick={logout}>
+
+          <GoSignOut className={classes.item} /> Déconnexion
+           
                 </MenuItem>
+          </div>
+        ) : (
+          <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
+        )}
+      </div>
+
+               
               </Menu>
               <span className={classes.notif}>
                 {" "}

@@ -22,7 +22,7 @@ import icon13 from "../images.jpg/icon13.png";
 import icon14 from "../images.jpg/icon14.png";
 import icon15 from "../images.jpg/icon15.png";
 import icon16 from "../images.jpg/icon16.png";
-import data from "../data.json";
+
 
 const useStyles = makeStyles({ 
  

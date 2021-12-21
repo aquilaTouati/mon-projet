@@ -5,13 +5,11 @@ import { RiQuestionnaireFill } from "react-icons/ri";
 import { GiPerson } from "react-icons/gi";
 import { FaUserNurse, FaTwitterSquare, FaStethoscope } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../styles.css/design.css";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import wavee from "../images.jpg/waveee.svg";
-import shape2 from "../images.jpg/shape2.svg";
+
 import logo from "../images.jpg/Copharma.png";
 const useStyles = makeStyles({
   shape: {
@@ -106,7 +104,7 @@ function Nav() {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-
+ 
   // const changeNav =()=>{
   //   console.log(window.scrollY)
   //   if(window.scrollY >= 680){

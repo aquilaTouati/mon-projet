@@ -1,20 +1,10 @@
 import React from "react";
-import { MdPersonAddAlt1, MdOutlineArrowForwardIos } from "react-icons/md";
-import { BiLogIn } from "react-icons/bi";
-import { FaUserNurse, FaStethoscope, FaExchangeAlt } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
-import design from "../images.jpg/mainbackground.png";
-import propic from "../images.jpg/propic.png";
 import team from "../images.jpg/team.png";
 import "../styles.css/design.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import shape2 from "../images.jpg/shape2.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import trait2 from "../images.jpg/trait2.png";
+import { useEffect} from "react";
 
 const useStyles = makeStyles({
  

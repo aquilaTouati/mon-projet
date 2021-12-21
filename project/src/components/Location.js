@@ -1,22 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { useState } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { ToastContainer } from "react-toastify";
 import { FiSearch } from "react-icons/fi";
 import { FaHandHoldingMedical } from "react-icons/fa";
-import { Menu } from "@material-ui/core";
-import { MenuItem } from "@material-ui/core";
-import { Fade } from "@material-ui/core";
-import { MdAddCircle } from "react-icons/md";
-import { RiAccountCircleFill } from "react-icons/ri";
-import { RiNotification2Line } from "react-icons/ri";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { AiOutlineCaretDown } from "react-icons/ai";
-import { useHistory } from "react-router-dom";
-import form from "../images.jpg/form.png";
-import ReactDOM from "react-dom";
+
 
 const useStyles = makeStyles({
   page: {
@@ -28,6 +14,45 @@ const useStyles = makeStyles({
     paddingBottom: "8rem",
   },
 
+  searchBox: {
+    position: "absolute",
+    marginTop: "-0.7rem",
+    left: 1000,
+    transform: "translate(-50%,-50%)",
+    background: "#CAE5E6",
+    borderRadius: 15,
+    height: 40,
+    paddingLeft: 90,
+    paddingRight: 10,
+    transition: "0.1s",
+
+    "&:hover": {
+      cursor: "pointer",
+      backgroundColor: "#BACAD9",
+    },
+  },
+  loupe: {
+    color: "#618E8F",
+    float: "right",
+    marginLeft: 20,
+    wdith: 40,
+    height: 40,
+    fontSize: 30,
+    background: "none",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  searchTxt: {
+    border: "none",
+    background: "none",
+    outline: "none",
+    float: "left",
+    padding: 0,
+    color: "white",
+    lineHeight: 3,
+    color: " black",
+  },
 
   buy: {
     "&:hover": {
@@ -188,37 +213,27 @@ const useStyles = makeStyles({
     color: "black",
   },
 });
-function Location({ onSuccess }, props) {
-  const history = useHistory();
+function Location() {
   const classes = useStyles();
 
-  /*Picture-uploader*/
-  const [files, setFiles] = useState([]);
-  const onInputChange = (e) => {
-    setFiles(e.target.files);
-  };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("files=", files);
-
-    const data = new FormData();
-
-    for (let i = 0; i < files.length; i++) {
-      data.append("file", files[i]);
-    }
-    axios
-      .post("http://localhost:5000/users", data)
-      .then((response) => {
-        toast.success("Upload Success");
-        onSuccess(response.data);
-      })
-      .catch((e) => {
-        toast.error("Upload Error");
-      });
-  };
 
   return (
     <div className={classes.page}>
+        <div className={classes.searchBox}>
+              <input
+                className={classes.searchTxt}
+                type="text"
+                name=""
+                placeholder="Recherche par produit"
+                
+                
+               
+              />
+             
+              <a className={classes.loupe} href="posts">
+                <FiSearch />
+              </a>
+            </div>
       <div className={classes.container}>
       <div>
       
@@ -226,7 +241,7 @@ function Location({ onSuccess }, props) {
         <h1 className={classes.title}>
           Mettre un article en location <FaHandHoldingMedical />
         </h1>
-        <p className={classes.title}>{props.name} </p>
+        <p className={classes.title}></p>
         <div className={classes.inputLabel}>
           <label className={classes.label}>Nom du matériel:</label>
           <input className={classes.nom} type="name" />
@@ -268,16 +283,13 @@ function Location({ onSuccess }, props) {
           <form
             className={classes.inputLabel}
             method="post"
-            action="#"
-            id="#"
-            onSubmit={onSubmit}
+            
           >
             <label className={classes.label}>Inserez une photo: </label>
             <input
               className={classes.file}
               type="file"
-              onChange={onInputChange}
-              multiple
+            
             />
           </form>
 

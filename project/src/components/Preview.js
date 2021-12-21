@@ -1,7 +1,0 @@
-export const Preview = ({files}) => {
-    if (!files.length) {
-        return null
-    }
-
-    return files.map((file) => <img style={{maxWidth: '100%'}} src={`//localhost:5000/${file.filename}`} alt={file.originalname}/>);
-};

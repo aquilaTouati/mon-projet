@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { GoSearch} from "react-icons/go";
 import { RiRecycleLine} from "react-icons/ri";
 import { makeStyles } from "@material-ui/core";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import matériel from "../images.jpg/Matériel médical.png";

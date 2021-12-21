@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import React from 'react';
 import { BsFacebook, BsInstagram} from "react-icons/bs";
 import {  AiFillLinkedin } from "react-icons/ai";
 import { FaTwitterSquare } from "react-icons/fa";

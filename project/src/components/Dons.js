@@ -1,23 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { useState } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { ToastContainer } from "react-toastify";
 import { FiSearch } from "react-icons/fi";
 import { FaHandHoldingHeart } from "react-icons/fa";
-import { Menu } from "@material-ui/core";
-import { MenuItem } from "@material-ui/core";
-import { Fade } from "@material-ui/core";
-import { MdAddCircle } from "react-icons/md";
-import { RiAccountCircleFill } from "react-icons/ri";
-import { RiNotification2Line } from "react-icons/ri";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { AiOutlineCaretDown } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import upload from "../images.jpg/upload.svg";
-import form from "../images.jpg/form.png";
-import ReactDOM from 'react-dom';
 import { motion} from "framer-motion";
 
 const useStyles = makeStyles({
@@ -209,65 +195,12 @@ const useStyles = makeStyles({
   
  
 });
-function Dons({ onSuccess }, props) {
+function Dons() {
   
-  const history = useHistory();
   const classes = useStyles();
-  /*Dropping menu*/
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [anchorEll, setAnchorEll] = React.useState(null);
-  const [anchorElll, setAnchorElll] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const open1 = Boolean(anchorEll);
-  const open2 = Boolean(anchorElll);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClick1 = (event) => {
-    setAnchorEll(event.currentTarget);
-  };
-  const handleClick2 = (event) => {
-    setAnchorElll(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const handleClose1 = () => {
-    setAnchorEll(null);
-  };
-  const handleClose2 = () => {
-    setAnchorElll(null);
-  };
-  /*Picture-uploader*/
-  const [files, setFiles] = useState([]);
-  const onInputChange = (e) => {
-    setFiles(e.target.files);
-  };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("files=", files);
-
-    const data = new FormData();
-
-    for (let i = 0; i < files.length; i++) {
-      data.append("file", files[i]);
-    }
-
-    axios
-      .post("http://localhost:5000/users", data)
-      .then((response) => {
-        toast.success("Upload Success");
-        onSuccess(response.data);
-      })
-      .catch((e) => {
-        toast.error("Upload Error");
-      });
-  };
-
+ 
   return (
     <div className={classes.page}>
-
-
       <div className={classes.container}>
       <h1 className={classes.title}>Faire un don  <FaHandHoldingHeart/></h1>
       <div className={classes.inputLabel}>
@@ -305,12 +238,10 @@ function Dons({ onSuccess }, props) {
           </div>
       
         <div >
-          <form className={classes.inputLabel} method="post" action="#" id="#" onSubmit={onSubmit}>
+          <form className={classes.inputLabel} method="post" action="#" id="#" >
             <label className={classes.label}>Inserez une photo: </label>
             <input className={classes.file}
               type ="file"
-              onChange={onInputChange}
-              multiple
             />
           </form>
           
