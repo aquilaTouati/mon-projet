@@ -180,7 +180,7 @@ const useStyles = makeStyles({
     color: "black",
   },
 });
-function Vente({ onSuccess }, props) {
+function Vente({ onSuccess }) {
   const history = useHistory();
   const classes = useStyles();
   const [products, setProducts] = useState();
@@ -192,7 +192,7 @@ function Vente({ onSuccess }, props) {
   const [etat, setEtat] = useState();
   const [place, setPlace] = useState();
   const [description, setDescription] = useState();
-  //  const productsList = useSelector((state)=> state.productsList);
+   const productsList = useSelector((state)=> state.productsList);
 
   const newProducts={
     nom: name,
@@ -262,7 +262,7 @@ function Vente({ onSuccess }, props) {
           prix: Yup.string().required(),
           etat: Yup.string().required(),
           wilaya: Yup.string().required(),
-          described: Yup.string().required(),
+          description: Yup.string().required(),
         })}
         onSubmit={async (values, { setSubmitting }) => {
           const response = await axios.post("http://localhost:5000/products", {
@@ -421,7 +421,7 @@ function Vente({ onSuccess }, props) {
                     </form>
 
                     <button
-                      onClick={dispatch(action.addElement(newProducts))}
+                      // onClick={dispatch(action.addElement(newProducts))}
                       type="submit"
                       className={classes.button}
                     >

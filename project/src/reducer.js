@@ -47,7 +47,8 @@ switch (action.type){
     return {productsList: [...state.productsList, action.payload]};
     case "REMOVE":
     return {productsList:[...state.productsList.filter((value)=>value.id !== action.payload)]};
-
+     default:
+     return state;
 }
 };
 export default listReducer;

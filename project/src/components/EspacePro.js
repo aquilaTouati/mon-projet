@@ -1,25 +1,12 @@
 import React from "react";
-import { MdPersonAddAlt1, MdOutlineArrowForwardIos } from "react-icons/md";
-import { BiLogIn } from "react-icons/bi";
 import { FaUserNurse, FaStethoscope, FaExchangeAlt } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
-import design from "../images.jpg/mainbackground.png";
 import propic from "../images.jpg/propic.png";
-import team from "../images.jpg/team.png";
 import "../styles.css/design.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import shape2 from "../images.jpg/shape2.svg";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import trait2 from "../images.jpg/trait2.png";
+import { useEffect } from "react";
 const useStyles = makeStyles({
-
- 
-  
-
   doc: {
     marginTop: "7rem",
     width: "60%",
@@ -40,7 +27,7 @@ const useStyles = makeStyles({
   professionels: {
     display: "flex",
     flexDirection: "row",
-    backgroundImage: "linear-gradient(-45deg, #008E94 20%, #6EBEC2 100%)",
+    backgroundImage: "linear-gradient(-15deg,#1B969B 0%, #1B969B 100% )",
      marginLeft: "-0.5rem",
     marginRight: "-0.5rem",
     paddingBottom:"10rem",
@@ -79,7 +66,7 @@ const useStyles = makeStyles({
   subparagraph: {
     marginLeft: "3rem",
     opacity: "0.7",
-    fontSize: "18px",
+    fontSize: "19px",
   },
   details: {
     marginTop: "10rem",
@@ -87,12 +74,13 @@ const useStyles = makeStyles({
   icon: {
     fontSize: "30px",
     paddingRight: "1rem",
-    color: "#0D6C70",
+    color: "#325769",
   },
 
  
   h: {
-    fontSize: "20px",
+    fontSize: "25px",
+    
   },
 });
 
@@ -107,7 +95,7 @@ function EspacePro() {
       <section className={classes.professionels}>
         <div className={classes.prohealth}>
 
-          <div className="details" data-aos="fade-right">
+          <div className="details" >
             <h2 className={classes.h}>
               {" "}
               <FaStethoscope className={classes.icon} /> Equipements et

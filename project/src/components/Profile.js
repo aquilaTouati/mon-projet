@@ -1,24 +1,11 @@
 import React from "react";
-import { RiAccountCircleFill, RiNotification2Line } from "react-icons/ri";
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { FiMapPin} from "react-icons/fi";
-import { AiOutlineCaretDown } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
-import { BrowserRouter as Link } from "react-router-dom";
-import { FiSearch } from "react-icons/fi";
 import { FaStethoscope } from "react-icons/fa";
 import { MdWheelchairPickup, MdAddCircle } from "react-icons/md";
 import {useDispatch, useSelector} from "react-redux";
 import { BsFillDropletFill } from "react-icons/bs";
 import { Menu, MenuItem, Fade, Button, makeStyles } from "@material-ui/core";
-// import Vente from "./Vente";
-// import Dons from "./Dons";
-// import oxygene from "../images.jpg/oxygene.jpg";
-// import steto from "../images.jpg/steto.jpg";
-// import tensiometre from "../images.jpg/tensiometre.jpg";
-// import chair from "../images.jpg/chair.jpg";
-// import crutch from "../images.jpg/crutch.jpg";
-// import diaper from "../images.jpg/diaper.jpg";
 import icon1 from "../images.jpg/icons8-microbe.png";
 import icon2 from "../images.jpg/tensiometre.png";
 import icon3 from "../images.jpg/sleep.png";
@@ -197,8 +184,9 @@ function Profile() {
   const history = useHistory();
   const classes = useStyles();
   const productsList = useSelector((state)=> state.productsList);
+  console.log(typeof(productsList));
+
   /*Dropping menu*/
- 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEll, setAnchorEll] = React.useState(null);
   const [anchorElll, setAnchorElll] = React.useState(null);
@@ -441,7 +429,7 @@ function Profile() {
               
              return (
               <div className={classes.box}>
-              {/* changer par data */}
+              {/* change through data */}
            <div className={classes.inboxx}>
             <img
               src

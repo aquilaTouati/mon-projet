@@ -182,7 +182,7 @@ const useStyles = makeStyles({
     },
   },
   title: {
-    paddingBottom: "2rem",
+    paddingBottom: "0.5rem",
   },
   option: {
     color: "black",

@@ -19,10 +19,14 @@ import EspacePro from "./components/EspacePro";
 import Apropos from "./components/Apropos";
 import Particuliers from "./components/Particuliers";
 import Data from "./data.json";
+import CarteScreen from "./components/CarteScreen";
+import ProductScreen from "./components/ProductScreen";
+import "./index.css";
 
 function App() {
   const [productsList, setProductsList] = useState([]);
   const [files, setFiles] = useState([]);
+  const [products, setProducts] = useState(Data);
   const onSuccess = (savedFiles) => {
     setFiles(savedFiles);
   };
@@ -32,12 +36,13 @@ function App() {
       <Router>
         {/* <Switch> */}
         <Route exact path="/">
-          <Navbar />
+          <Navbar setProducts={setProducts} products={Data}  />
+          
         </Route>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/EspacePro">
+        <Route exact path="/EspacePro" >
           <Navbar />
         </Route>
         <Route exact path="/EspacePro">
@@ -82,7 +87,14 @@ function App() {
         <Route exact path="/Location">
           <Header />
         </Route>
-
+        
+        <Route exact path="/ProductScreen">
+          <ProductScreen />
+        </Route>
+        
+        <Route exact path="/CarteScreen">
+          <CarteScreen />
+        </Route>
         <Route exact path="/Dons">
           <Dons />
         </Route>

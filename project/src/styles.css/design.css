@@ -25,6 +25,7 @@ font-family: 'Poppins', sans-serif;
   }
  .details {
     margin-top: 6rem;
+    color:white;
   }
   .nav {
     text-decoration:none;
@@ -35,3 +36,12 @@ font-family: 'Poppins', sans-serif;
     font-size: 18;
     
   }
+  
+  .materiel{
+    position:absolute;
+    margin-top:-35rem;
+    margin-left:53rem;
+    width:45%;
+  }
+ 
+  

@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   story: {
     display: "flex",
     flexDirection: "row",
-     backgroundImage: "linear-gradient(-45deg, #E6F1FF 20%, #75B0FF 100%)",
+     backgroundImage: "linear-gradient(-45deg, #C4CCD6 20%, #9099C4 100%)",
      marginLeft: "-0.5rem",
     paddingRight: "1rem",
     width:"100%",

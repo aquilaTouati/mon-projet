@@ -6,15 +6,6 @@ import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import trait from "../images.jpg/trait.png";
-import { BsSearch, BsFacebook, BsInstagram } from "react-icons/bs";
-import "../styles.css/profile.css";
-import { MdWavingHand } from "react-icons/md";
-import { BiLogIn } from "react-icons/bi";
-import { AiFillHome, AiFillLinkedin } from "react-icons/ai";
-import { RiQuestionnaireFill } from "react-icons/ri";
-import { GiPerson } from "react-icons/gi";
-import { FaUserNurse, FaTwitterSquare } from "react-icons/fa";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   page: {
@@ -132,10 +123,11 @@ function Inscription() {
   const [error, setError] = useState(false);
   const history = useHistory();
 
+
   useEffect(() => {
     const getUsername = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/users");
+        const response = await axios.get("http://localhost:5000/users" );
         console.log(response.data);
         setUsers(response.data.data);
         setLoading(false);
@@ -150,11 +142,14 @@ function Inscription() {
   return (
     <div className={classes.page}>
       <Formik
-        initialValues={{ name: "", username: "", email: "", password: "" }}
+        initialValues={{ name: "", username: "", email: "", password: "", wilaya:"", option:"" }}
         validationSchema={Yup.object().shape({
           name: Yup.string().max(50).required(),
+          password: Yup.string().required(),
           username: Yup.string().required(),
           email: Yup.string().email().required(),
+          wilaya: Yup.string().required(),
+          option: Yup.string().required()
         })}
         onSubmit={async (values, { setSubmitting }, ) => {
           const response = await axios.post("http://localhost:5000/users", {
@@ -162,6 +157,8 @@ function Inscription() {
             name: values.name,
             username: values.username,
             password: values.password,
+            wilaya: values.wilaya,
+            option: values.option,
           });
           setUsers(response.data.data);
           setSubmitting(false);
@@ -188,6 +185,13 @@ function Inscription() {
                 {errors.password && touched.password && (
                   <div> {errors.password} </div>
                 )}
+                  {errors.wilaya && touched.wilaya && (
+                  <div> {errors.wilaya} </div>
+                )}
+                 {errors.option && touched.option && (
+                  <div> {errors.option} </div>
+                )}
+
 
                 <div className={classes.container}>
                   <div className={classes.signupContainer}>
@@ -267,17 +271,23 @@ function Inscription() {
                         </div>
                         <div className={classes.inputs}>
                           <label className={classes.name}>Wilaya</label>
-                          <select className={classes.alger}  className={classes.input}>
+                          <select  onChange={handleChange}
+                            onBlur={handleBlur}
+                            name="wilaya"
+                            value={values.wilaya} className={classes.alger}  className={classes.input}>
                             <option className={classes.option}> Alger </option>
                           </select>
                         </div>
                       </div>
 
                       <div className={classes.inputs}>
-                        <label className={classes.radio}>Je suis</label>
+                        <label className={classes.radio}>Option</label>
                         <div className={classes.nameFname}>
                           <label for="Particulier">Particulier</label>
                           <input 
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.option}
                             type="radio"
                             id="Particulier"
                             name="option"
@@ -295,7 +305,8 @@ function Inscription() {
                       </div>
                     </div>
                   </div>
-                  <button className={classes.button} type="submit">
+                  <button className={classes.button} type="submit" 
+                  >
                   {" "}
                   Confirmer{" "}
                 </button>
