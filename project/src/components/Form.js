@@ -193,33 +193,33 @@ const Form = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
+  
 
   useEffect(() => {
     if (post) setPostData(post);
   }, [post]);
 
-  const clear = () => {
-    setCurrentId(0);
-    setPostData({
-      nom: "",
-      catégorie: "",
-      prix: "",
-      etat: "",
-      wilaya: "",
-      description: "",
-      selectedFile: "",
-    });
-  };
+  // const clear = () => {
+  //   setCurrentId(0);
+  //   setPostData({
+  //     nom: "",
+  //     catégorie: "",
+  //     prix: "",
+  //     etat: "",
+  //     wilaya: "",
+  //     description: "",
+  //     selectedFile: "",
+  //   });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (currentId === 0) {
       dispatch(createPost(postData));
-      clear();
+      history.push('/Posts');
     } else {
       dispatch(updatePost(currentId, postData));
-      clear();
     }
   };
 
@@ -228,7 +228,6 @@ const Form = ({ currentId, setCurrentId }) => {
       <form
         autoComplete="off"
         noValidate
-        className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
         {/* <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Memory'}</Typography> */}
@@ -344,6 +343,8 @@ const Form = ({ currentId, setCurrentId }) => {
             {" "}
             Ajouter{" "}
           </button>
+         
+
         </div>
       </form>
     </div>

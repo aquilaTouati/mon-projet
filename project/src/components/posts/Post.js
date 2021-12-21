@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { FiMapPin } from "react-icons/fi";
+import {MdLocationPin} from "react-icons/md";
+import { AiOutlineDollarCircle } from "react-icons/ai";
 const useStyles = makeStyles({
   icons: {
     display: "flex",
@@ -149,6 +150,14 @@ const useStyles = makeStyles({
   row:{
     display:"flex",
     flexDirection:"row",
+  },
+  prix:{
+    marginLeft:"5rem"
+
+  },
+  
+  icon:{
+    marginRight:"1rem"
   }
 });
 
@@ -158,7 +167,7 @@ const Post = ({ post /*setCurrentId*/ }) => {
 
   return (
     <div className={classes.box}>
-      {/* change through data */}
+     
       <div className={classes.inboxx}>
         <img
           src
@@ -170,10 +179,16 @@ const Post = ({ post /*setCurrentId*/ }) => {
       </div>
       <div className={classes.text}>
         <p className={classes.productName}>{post.nom}</p>
+        <div className={classes.row}>
         <p className={classes.place}>
-          <FiMapPin />
+          <MdLocationPin />
           {post.wilaya}
         </p>
+        <p className={classes.prix}>
+        <AiOutlineDollarCircle/>
+          {post.prix }
+        </p>
+        </div>
       </div>
     </div>
     

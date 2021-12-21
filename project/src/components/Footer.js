@@ -10,6 +10,7 @@ const useStyles = makeStyles({
         marginLeft:"-0.5rem",
         paddingTop:"6rem",
         marginRight:"-0.5rem",
+      
        
         
           },

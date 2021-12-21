@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
    
         fontFamily: "Poppins, sans-serif",
         backgroundImage: "linear-gradient(-15deg, #C0D3D4 10%, #266D70 100% )",
-         height: "70rem",
+         height: "300rem",
         marginRight: "-0.5rem",
         marginLeft: "-1rem",
         marginTop:"-0.5rem",

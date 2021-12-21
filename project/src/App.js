@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router,Route } from "react-router-dom";
 import Home from "./components/Home";
 import Auth from "./components/Auth";
-import Profile from "./components/Profile";
 import Location from "./components/Location";
-import { ToastContainer } from "react-toastify";
 import Dons from "./components/Dons";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -26,7 +24,7 @@ function App() {
   const [currentId, setCurrentId] = useState(0);
   // const dispatch = useDispatch();
   
-  const [searchTerm, setSearchTerm] = useState("");
+
 
   // useEffect(() => {
   //   dispatch(getPosts());
@@ -46,11 +44,11 @@ function App() {
        
 
         <Route exact path="/Posts">
-          <Header searchTerm={searchTerm}  setSearchTerm={setSearchTerm} />
+          <Header />
         </Route>
 
         <Route exact path="/Posts">
-          <Posts searchTerm={searchTerm} setCurrentId={setCurrentId} selectedFile={selectedFile} />
+          <Posts  setCurrentId={setCurrentId} selectedFile={selectedFile} />
         </Route>
 
         <Route exact path="/Form">
@@ -82,14 +80,8 @@ function App() {
         <Route exact path="/Auth">
           <Auth />
         </Route>
-        <Route exact path="/Materiel">
-          <Header />
-        </Route>
         <Route exact path="/Profile">
           <Header />
-        </Route>
-        <Route exact path="/Profile">
-          <Profile /*productsList={productsList}*/ />
         </Route>
         <Route exact path="/Vente">
           <Header />
@@ -108,7 +100,7 @@ function App() {
         <Route exact path="/Location">
           <Location />
         </Route>
-        <ToastContainer />
+      
 
         {/* </Switch> */}
       </Router>
