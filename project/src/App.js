@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router,Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Auth from "./components/Auth";
 import Location from "./components/Location";
@@ -14,43 +14,34 @@ import "./index.css";
 import Posts from "./components/posts/Posts";
 import Form from "./components/Form";
 function App() {
-  // const [productsList, setProductsList] = useState([]);
   const [selectedFile, setSelectedFile] = useState([]);
-  // const [products, setProducts] = useState(Data);
-  // const onSuccess = (savedSelectedFile) => {
-  //   setSelectedFile(savedSelectedFile);
-  // };
 
   const [currentId, setCurrentId] = useState(0);
-  // const dispatch = useDispatch();
-  
+ 
 
-
-  // useEffect(() => {
-  //   dispatch(getPosts());
-  // }, [currentId, dispatch]);
+ 
 
   return (
     <div>
       <Router>
         {/* <Switch> */}
         <Route exact path="/">
-          <Navbar /*setProducts={setProducts} products={Data}*/ />
+          <Navbar />
         </Route>
         <Route exact path="/">
           <Home />
         </Route>
-
-       
 
         <Route exact path="/Posts">
           <Header />
         </Route>
 
         <Route exact path="/Posts">
-          <Posts  setCurrentId={setCurrentId} selectedFile={selectedFile} />
+          <Posts setCurrentId={setCurrentId} selectedFile={selectedFile} />
         </Route>
-
+        <Route exact path="/Form">
+          <Header />
+        </Route>
         <Route exact path="/Form">
           <Form currentId={currentId} setCurrentId={setCurrentId} />
         </Route>
@@ -73,7 +64,7 @@ function App() {
         <Route exact path="/Particuliers">
           <Particuliers />
         </Route>
-        
+
         <Route exact path="/Auth">
           <Navbar />
         </Route>
@@ -83,9 +74,7 @@ function App() {
         <Route exact path="/Profile">
           <Header />
         </Route>
-        <Route exact path="/Vente">
-          <Header />
-        </Route>
+
         <Route exact path="/Dons">
           <Header />
         </Route>
@@ -96,11 +85,10 @@ function App() {
         <Route exact path="/Dons">
           <Dons />
         </Route>
-        
+
         <Route exact path="/Location">
           <Location />
         </Route>
-      
 
         {/* </Switch> */}
       </Router>

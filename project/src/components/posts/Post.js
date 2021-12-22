@@ -158,7 +158,8 @@ const useStyles = makeStyles({
   
   icon:{
     marginRight:"1rem"
-  }
+  },
+ 
 });
 
 const Post = ({ post /*setCurrentId*/ }) => {
@@ -166,6 +167,7 @@ const Post = ({ post /*setCurrentId*/ }) => {
   const classes = useStyles();
 
   return (
+    <div>
     <div className={classes.box}>
      
       <div className={classes.inboxx}>
@@ -190,6 +192,7 @@ const Post = ({ post /*setCurrentId*/ }) => {
         </p>
         </div>
       </div>
+    </div>
     </div>
     
     // <Card className={classes.card}>

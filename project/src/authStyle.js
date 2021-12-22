@@ -53,7 +53,7 @@ marginTop:"1rem"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#099BB2",
   },
   form: {
     width: '100%', // Fix IE 11 issue.

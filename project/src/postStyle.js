@@ -168,8 +168,8 @@ export default makeStyles((theme) => ({
   borderBottom: {
     borderBottom: "1px solid white",
     marginTop: "10rem",
-    width: "86%",
-    marginLeft: "8rem",
+    width: "90%",
+    marginLeft: "5rem",
   },
   menu2: {
     width: "30%",
@@ -191,13 +191,13 @@ export default makeStyles((theme) => ({
     position: "absolute",
     fontSize: "25px",
     color: "white",
-    marginLeft: "8rem",
+    marginLeft: "5rem",
   },
   all: {
     color: "white",
     opacity: 0.7,
     fontSize: "18px",
-    marginLeft: "8rem",
+    marginLeft: "5rem",
   },
   posts:{
     display:"flex",

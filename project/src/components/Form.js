@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import FileBase from "react-file-base64";
+import { FiSearch } from "react-icons/fi";
 import { makeStyles } from "@material-ui/core";
 import { createPost, updatePost } from "../actions/posts";
 import { FaHandHoldingMedical } from "react-icons/fa";
@@ -16,7 +17,45 @@ const useStyles = makeStyles({
     marginTop: "-5rem",
     paddingBottom: "8rem",
   },
+  searchBox: {
+    position: "absolute",
+    marginTop: "3.2rem",
+    left: 1000,
+    transform: "translate(-50%,-50%)",
+    background: "#CAE5E6",
+    borderRadius: 15,
+    height: 40,
+    paddingLeft: 90,
+    paddingRight: 10,
+    transition: "0.1s",
 
+    "&:hover": {
+      cursor: "pointer",
+      backgroundColor: "#BACAD9",
+    },
+  },
+  loupe: {
+    color: "#618E8F",
+    float: "right",
+    marginLeft: 20,
+    wdith: 40,
+    height: 40,
+    fontSize: 30,
+    background: "none",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  searchTxt: {
+    border: "none",
+    background: "none",
+    outline: "none",
+    float: "left",
+    padding: 0,
+    color: "white",
+    lineHeight: 3,
+    color: " black",
+  },
   buy: {
     "&:hover": {
       cursor: "pointer",
@@ -37,6 +76,7 @@ const useStyles = makeStyles({
     // boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px",
     paddingLeft: "7rem",
     paddingRight: "7rem",
+    paddingBottom:"3rem",
     position: "absolute",
     marginTop: "10rem",
     borderRadius: 10,
@@ -63,7 +103,7 @@ const useStyles = makeStyles({
     fontSize: "20px",
   },
 
-  alger: {
+  wilayas: {
     border: "none",
     background: "none",
     outline: "none",
@@ -71,7 +111,7 @@ const useStyles = makeStyles({
     fontFamily: "Poppins, sans-serif",
     fontSize: "15px",
     width: "34%",
-    color: "white",
+    color: "black",
     marginLeft: "1rem",
   },
 
@@ -149,12 +189,12 @@ const useStyles = makeStyles({
     fontSize: 15,
     // marginLeft: 35,
     width: "50%",
-    marginLeft: "5em",
+    marginLeft: "10em",
     marginTop: 8,
   },
   button: {
     marginLeft: "4.5em",
-    marginBottom: "2rem",
+    marginTop: "1.5rem",
     fontSize: 20,
     backgroundColor: "#1A9B9F ",
     borderRadius: "10px",
@@ -165,7 +205,7 @@ const useStyles = makeStyles({
     color: "white",
     "&:hover": {
       cursor: "pointer",
-      boxShadow: "inset 371px 0 0 0 #0E2F5B",
+      boxShadow: "inset 399px 0 0 0 #0E2F5B",
       color: "white",
     },
   },
@@ -225,6 +265,19 @@ const Form = ({ currentId, setCurrentId }) => {
 
   return (
     <div className={classes.page}>
+       <div className={classes.searchBox}>
+              <input
+                className={classes.searchTxt}
+                type="text"
+                name=""
+                placeholder="Recherche par produit"
+               
+              />
+             
+              <a className={classes.loupe} href="#">
+                <FiSearch />
+              </a>
+            </div>
       <form
         autoComplete="off"
         noValidate
@@ -298,7 +351,7 @@ const Form = ({ currentId, setCurrentId }) => {
             <label  name="wilaya"
                className={classes.ville}>Wilaya:</label>
             <select
-            className={classes.alger}
+            className={classes.wilayas}
             value={postData.wilaya}
             onChange={(e) =>
               setPostData({ ...postData, wilaya: e.target.value })

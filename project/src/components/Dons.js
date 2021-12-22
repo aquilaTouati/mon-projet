@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
+import { useHistory} from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import FileBase from "react-file-base64";
 import { makeStyles } from "@material-ui/core";
+import { createPost, updatePost } from "../actions/posts";
 import { FiSearch } from "react-icons/fi";
 import { FaHandHoldingHeart } from "react-icons/fa";
-import { useHistory } from "react-router-dom";
-import upload from "../images.jpg/upload.svg";
-import { motion} from "framer-motion";
+
 
 const useStyles = makeStyles({
- 
-
   page: {
     backgroundImage: "linear-gradient(-15deg, #C0D3D4 10%, #266D70 100% )",
     height: "50rem",
@@ -17,22 +17,7 @@ const useStyles = makeStyles({
     marginTop: "-5rem",
     paddingBottom: "8rem",
   },
- 
-  drop: {
-    color: "blue",
-    marginRight: 15,
-    fontSize: 30,
-  },
-  menu: {
-    marginTop: 40,
-    marginLeft: -80,
-    fontFamily: "Poppins, sans-serif",
-  },
-  item: {
-    marginRight: 20,
-    fontSize: 25,
-    color: "#03989E",
-  },
+
   buy: {
     "&:hover": {
       cursor: "pointer",
@@ -47,13 +32,13 @@ const useStyles = makeStyles({
     color: "white",
   },
 
-  
   container: {
     marginLeft: "27rem",
     color: "white",
     // boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px",
     paddingLeft: "7rem",
     paddingRight: "7rem",
+    paddingBottom:"3rem",
     position: "absolute",
     marginTop: "10rem",
     borderRadius: 10,
@@ -91,7 +76,45 @@ const useStyles = makeStyles({
     color: "white",
     marginLeft: "1rem",
   },
+  searchBox: {
+    position: "absolute",
+    marginTop: "3.2rem",
+    left: 1000,
+    transform: "translate(-50%,-50%)",
+    background: "#CAE5E6",
+    borderRadius: 15,
+    height: 40,
+    paddingLeft: 90,
+    paddingRight: 10,
+    transition: "0.1s",
 
+    "&:hover": {
+      cursor: "pointer",
+      backgroundColor: "#BACAD9",
+    },
+  },
+  loupe: {
+    color: "#618E8F",
+    float: "right",
+    marginLeft: 20,
+    wdith: 40,
+    height: 40,
+    fontSize: 30,
+    background: "none",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  searchTxt: {
+    border: "none",
+    background: "none",
+    outline: "none",
+    float: "left",
+    padding: 0,
+    color: "white",
+    lineHeight: 3,
+    color: " black",
+  },
   informations: {
     border: "none",
     // background: "none",
@@ -111,11 +134,11 @@ const useStyles = makeStyles({
   },
 
   pic: {
-    width: "20%",
+    width: "50%",
     float: "right",
     marginBottom: "-6rem",
-    marginTop: "20rem",
-    marginRight: "-1rem",
+    marginTop: "8rem",
+    marginRight: "-4rem",
   },
   etat: {
     border: "none",
@@ -166,12 +189,12 @@ const useStyles = makeStyles({
     fontSize: 15,
     // marginLeft: 35,
     width: "50%",
-    marginLeft: "5em",
+    marginLeft: "10em",
     marginTop: 8,
   },
   button: {
     marginLeft: "4.5em",
-    marginBottom: "2rem",
+    marginTop: "1.5rem",
     fontSize: 20,
     backgroundColor: "#1A9B9F ",
     borderRadius: "10px",
@@ -182,7 +205,7 @@ const useStyles = makeStyles({
     color: "white",
     "&:hover": {
       cursor: "pointer",
-      boxShadow: "inset 371px 0 0 0 #0E2F5B",
+      boxShadow: "inset 399px 0 0 0 #0E2F5B",
       color: "white",
     },
   },
@@ -192,77 +215,191 @@ const useStyles = makeStyles({
   option: {
     color: "black",
   },
-  
- 
 });
-function Dons() {
-  
+
+const Location = ({ currentId, setCurrentId }) => {
+  const [postData, setPostData] = useState({
+    nom: "",
+    catégorie: "",
+    prix: "",
+    etat: "",
+    wilaya: "",
+    description: "",
+    selectedFile: "",
+  });
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((message) => message._id === currentId) : null
+  );
+  const dispatch = useDispatch();
   const classes = useStyles();
- 
+  const history = useHistory();
+  
+
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post]);
+
+  // const clear = () => {
+  //   setCurrentId(0);
+  //   setPostData({
+  //     nom: "",
+  //     catégorie: "",
+  //     prix: "",
+  //     etat: "",
+  //     wilaya: "",
+  //     description: "",
+  //     selectedFile: "",
+  //   });
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (currentId === 0) {
+      dispatch(createPost(postData));
+      history.push('/Posts');
+    } else {
+      dispatch(updatePost(currentId, postData));
+    }
+  };
+
   return (
     <div className={classes.page}>
-      <div className={classes.container}>
-      <h1 className={classes.title}>Faire un don  <FaHandHoldingHeart/></h1>
-      <div className={classes.inputLabel}>
-          <label className={classes.label}>Nom du matériel:</label>
-          <input className={classes.nom} type="name" />
-          </div>
-        <div className={classes.inputLabel}>
-        <label className={classes.label}>Choisir la catégorie:</label>
-          <select className={classes.categorie}>
-            <option> Matériel Médical</option>
-            <option> Matériel Professionel</option>
-            <option> Produit d'incontinence</option>
-          </select>
-          </div>
-
-       
-        <div className={classes.inputLabel}>
-        <label className={classes.label}>Etat:</label>
-          <select className={classes.etat}>
-            <option>Neuf</option>
-            <option> Bon etat</option>
-            <option> Etat moyen</option>
-            <option> Reconditionné</option>
-          </select>
-          
-           <label className={classes.ville}>Wilaya:</label>
-          <select className={classes.alger}>
-            <option > Alger </option>
-          </select>
+      <div className={classes.searchBox}>
+              <input
+                className={classes.searchTxt}
+                type="text"
+                name=""
+                placeholder="Recherche par produit"
+               
+              />
+             
+              <a className={classes.loupe} href="#">
+                <FiSearch />
+              </a>
+            </div>
+      <form
+        autoComplete="off"
+        noValidate
+        onSubmit={handleSubmit}
+      >
+        {/* <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Memory'}</Typography> */}
+        <div className={classes.container}>
+        <h1 className={classes.title}>Faire un don  <FaHandHoldingHeart/></h1>
+          <div className={classes.inputLabel}>
+            <label className={classes.label}>Nom du matériel: </label>
+            <input
+              name="nom"
+              value={postData.nom}
+              className={classes.nom}
+              onChange={(e) =>
+                setPostData({ ...postData, nom: e.target.value })
+              }
+              type="name"
+            />
           </div>
           <div className={classes.inputLabel}>
-        <label className={classes.label}>Description:</label>
-          <input className={classes.informations} type="message"  />
-          
+            <label className={classes.label}>Choisir la catégorie: </label>
+            <select
+              name="catégorie"
+              className={classes.categorie}
+              value={postData.catégorie}
+              onChange={(e) =>
+                setPostData({ ...postData, catégorie: e.target.value })
+              }
+            >
+              <option className={classes.option}> Matériel Médical</option>
+              <option className={classes.option}> Matériel Professionel</option>
+              <option className={classes.option}>
+                {" "}
+                Produit d'incontinence
+              </option>
+            </select>
           </div>
-      
-        <div >
-          <form className={classes.inputLabel} method="post" action="#" id="#" >
-            <label className={classes.label}>Inserez une photo: </label>
-            <input className={classes.file}
-              type ="file"
+          <div className={classes.inputLabel}>
+            <label className={classes.label}>Prix:</label>
+            <input
+              name="prix"
+              className={classes.prix}
+              type=""
+              placeholder="En Dinars"
+              value={postData.prix}
+              onChange={(e) =>
+                setPostData({ ...postData, prix: e.target.value })
+              }
             />
-          </form>
-          
-      
-       <button type="submit"  className={classes.button}> Ajouter </button>
+          </div>
+
+          <div className={classes.inputLabel}>
+            <label className={classes.label}>Etat:</label>
+            <select
+              name="etat"
+              className={classes.etat}
+              value={postData.etat}
+              onChange={(e) =>
+                setPostData({ ...postData, etat: e.target.value })
+              }
+            >
+              <option className={classes.option}>Neuf</option>
+              <option className={classes.option}> Bon etat</option>
+              <option className={classes.option}> Etat moyen</option>
+              <option className={classes.option}> Reconditionné</option>
+            </select>
+
+            <label  name="wilaya"
+               className={classes.ville}>Wilaya:</label>
+            <select
+            className={classes.alger}
+            value={postData.wilaya}
+            onChange={(e) =>
+              setPostData({ ...postData, wilaya: e.target.value })
+            }
+            >
+              <option> Djelfa</option>
+              <option> Alger </option>
+              <option>Constantine</option>
+              <option> Tizi Ouzou</option>
+              <option> Bejaia </option>
+              <option> Oran</option>
+              <option> Tlemcen</option>
+              <option> Blida</option>
+              <option> Tipaza</option>
+              <option> Msila</option>
+              <option> Setif</option>
+
+            </select>
+          </div>
+          <div className={classes.inputLabel}>
+            <label className={classes.label}>Description:</label>
+            <input
+            required
+              name="description"
+              className={classes.informations}
+              value={postData.description}
+              onChange={(e) =>
+                setPostData({ ...postData, description: e.target.value })
+              }
+              type="message"
+            />
+          </div>
+          <label className={classes.label}>Inserez une photo: </label>
+          <FileBase
+            className={classes.file}
+            multiple={false}
+            onDone={({ base64 }) =>
+              setPostData({ ...postData, selectedFile: base64 })
+            }
+          />
+          <button type="submit" className={classes.button} >
+            {" "}
+            Ajouter{" "}
+          </button>
+         
+
         </div>
-        
-      </div>
-        {/* framer-motion animation */}{" "}
-        <motion.div
-           initial={{y:0 }}
-           animate={{ opacity: 5, y:100}}
-          transition={{ repeat: Infinity, duration: 2}}
-        >
-            <div>
-      <img  className={classes.pic} src={upload} alt="Background picture" /> 
-      </div>
-      </motion.div>{" "}
-        {/* framer-motion animation */}
+      </form>
     </div>
   );
-}
+};
 
-export default Dons;
+export default Location;
