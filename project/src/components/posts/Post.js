@@ -2,6 +2,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 import {MdLocationPin} from "react-icons/md";
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { getPosts } from "../../actions/posts";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles({
   icons: {
     display: "flex",
@@ -162,13 +166,25 @@ const useStyles = makeStyles({
  
 });
 
-const Post = ({ post /*setCurrentId*/ }) => {
-  // const dispatch = useDispatch();
+
+
+
+
+// {post} destructring the props
+const Post = ({ post  }) => {
   const classes = useStyles();
+const history = useHistory();
+const openPost = (e) => {
+  history.push(`/Posts/${post._id}`);
+};
+const dispatch = useDispatch();
+useEffect(() => {
+  dispatch(getPosts());
+}, [dispatch]);
 
   return (
     <div>
-    <div className={classes.box}>
+    <div className={classes.box} onClick={openPost}>
      
       <div className={classes.inboxx}>
         <img

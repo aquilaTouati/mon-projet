@@ -39,11 +39,13 @@ const SignUp = () => {
   };
 
   const googleSuccess = async (res) => {
-    const result = res?.profileObj;
+    const result = res?.profileObj; 
+//the optional operator will not throw an error if we don't have access to the res object 
     const token = res?.tokenId;
 
     try {
       dispatch({ type: AUTH, data: { result, token } });
+      //it sends a new object that contains the result and the token
 
       history.push('/Posts');
     } catch (error) {

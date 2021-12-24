@@ -9,27 +9,39 @@ import { useEffect} from "react";
 const useStyles = makeStyles({
  
   apropos: {
-    width:"35%",
+    width:"80%",
     fontSize: "20px",
-    marginTop: "13rem",
+    marginTop: "10rem",
     marginLeft: "5rem",
+    paddingTop:"2rem",
   },
  
   story: {
     display: "flex",
     flexDirection: "row",
-     backgroundImage: "linear-gradient(-45deg, #C4CCD6 20%, #9099C4 100%)",
+    backgroundImage: "linear-gradient(-15deg,#1B969B 0%, #1B969B 100% )",
      marginLeft: "-0.5rem",
     paddingRight: "1rem",
     width:"100%",
     marginTop: "-0.5rem",
     paddingBottom:"15rem",
+    backgroundColor:"white",
+    
+  },
+  container:{
+    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+    backgroundColor:"white",
+    width:"50%",
+    marginLeft: "26rem",
+    borderRadius:10,
+    paddingBottom:"2rem",
+    opacity:"0.5",
   },
 
   team: {
     width: "40%",
     marginTop: "12rem",
-    marginLeft: "15rem",
+    marginLeft: "25rem",
  
   },
 
@@ -44,15 +56,16 @@ function Apropos() {
   }, []);
 
   return (
-    <div>
-      <section id="apropos" className={classes.story}>
+    <div className={classes.story}>
+      <section id="apropos" >
+      <div className={classes.container}>
         <p className={classes.apropos} data-aos="fade-right">
           {" "}
           Face aux conséquences dramatiques de la crise sanitaire ainsi que les
           derniers incendies qu’a connu le pays, des centaines de personnes sont
           décédées a cause du manque de matériaux médicaux et paramédicaux.
-          <br />
-          <br /> Nous avons donc décidé de créer ce site qui a pour but de
+          
+           Nous avons donc décidé de créer ce site qui a pour but de
           garantir aux patients ainsi que les professionnels de la santé un
           accès facile et rapide aux dispositifs médicaux essentiels.
           <br />
@@ -63,9 +76,7 @@ function Apropos() {
           tout autre équipement médical durable.{" "}
         </p>
 
-        <img className={classes.team} src={team} alt="Background picture"  data-aos="flip-left"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="2000"  />
+        </div>
       </section>
     </div>
   );

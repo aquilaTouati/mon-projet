@@ -46,7 +46,7 @@ const useStyles = makeStyles({
     position:"absolute",
     marginTop:"-35rem",
     marginLeft:"53rem",
-    width:"45%"
+    width:"85%"
   },
   p:{
     opacity: "0.7",

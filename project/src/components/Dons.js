@@ -35,7 +35,6 @@ const useStyles = makeStyles({
   container: {
     marginLeft: "27rem",
     color: "white",
-    // boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px",
     paddingLeft: "7rem",
     paddingRight: "7rem",
     paddingBottom:"3rem",
@@ -46,8 +45,6 @@ const useStyles = makeStyles({
   },
   label: {
     fontSize: "20px",
-
-    // display: "block",
   },
 
   inputLabel: {
@@ -56,10 +53,6 @@ const useStyles = makeStyles({
 
     marginBottom: 30,
   },
-  // label2:{
-  //   marginLeft:70,
-  //   fontSize: 25,
-  // },
   ville: {
     marginLeft: "2rem",
     fontSize: "20px",
@@ -117,7 +110,6 @@ const useStyles = makeStyles({
   },
   informations: {
     border: "none",
-    // background: "none",
     outline: "none",
     fontFamily: "Poppins, sans-serif",
     fontSize: "20px",
@@ -173,21 +165,10 @@ const useStyles = makeStyles({
     color: "white",
     width: "47%",
   },
-  prix: {
-    border: "none",
-    background: "none",
-    outline: "none",
-    borderBottom: "2px solid white",
-    fontFamily: "Poppins, sans-serif",
-    fontSize: "15px",
-    color: "white",
-    marginLeft: "1rem",
-    width: "54%",
-  },
+  
 
   file: {
     fontSize: 15,
-    // marginLeft: 35,
     width: "50%",
     marginLeft: "10em",
     marginTop: 8,
@@ -316,19 +297,7 @@ const Location = ({ currentId, setCurrentId }) => {
               </option>
             </select>
           </div>
-          <div className={classes.inputLabel}>
-            <label className={classes.label}>Prix:</label>
-            <input
-              name="prix"
-              className={classes.prix}
-              type=""
-              placeholder="En Dinars"
-              value={postData.prix}
-              onChange={(e) =>
-                setPostData({ ...postData, prix: e.target.value })
-              }
-            />
-          </div>
+         
 
           <div className={classes.inputLabel}>
             <label className={classes.label}>Etat:</label>
@@ -355,17 +324,18 @@ const Location = ({ currentId, setCurrentId }) => {
               setPostData({ ...postData, wilaya: e.target.value })
             }
             >
-              <option> Djelfa</option>
-              <option> Alger </option>
-              <option>Constantine</option>
-              <option> Tizi Ouzou</option>
-              <option> Bejaia </option>
-              <option> Oran</option>
-              <option> Tlemcen</option>
-              <option> Blida</option>
-              <option> Tipaza</option>
-              <option> Msila</option>
-              <option> Setif</option>
+              <option className={classes.option}> Djelfa</option>
+              <option className={classes.option}> Alger </option>
+              <option className={classes.option}>Msila</option>
+              <option className={classes.option}> Tizi Ouzou</option>
+              <option className={classes.option}> Bejaia </option>
+              <option className={classes.option}> Oran</option>
+              <option className={classes.option}> Tlemcen</option>
+              <option className={classes.option}> Blida</option>
+              <option className={classes.option}> Tipaza</option>
+              <option className={classes.option}> Msila</option>
+              <option className={classes.option}> Setif</option>
+              <option className={classes.option}>Constantine</option>
 
             </select>
           </div>

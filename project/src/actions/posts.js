@@ -1,7 +1,9 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants'; //variables
 
 import * as api from '../api/';
+// if there is a typo, it will be shown in the terminal
 
+//action creators
 export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();

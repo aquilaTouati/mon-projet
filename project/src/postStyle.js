@@ -107,6 +107,9 @@ export default makeStyles((theme) => ({
     fontSize: 25,
     color: "#03989E",
   },
+  selectFile:{
+    width:"30%"
+},
 
   content: {
     display: "flex",

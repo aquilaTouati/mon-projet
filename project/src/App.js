@@ -89,7 +89,6 @@ function App() {
         <Route exact path="/Location">
           <Location />
         </Route>
-
         {/* </Switch> */}
       </Router>
       <Footer />
